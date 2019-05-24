@@ -1,3 +1,3 @@
 # uni_implementations
 
-Share, b$tches!
+Share, don't be a $batch!
