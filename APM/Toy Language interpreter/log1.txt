@@ -1,0 +1,63 @@
+[
+ExeStack:
+	int v;  
+	v = 2; 
+	print("v"); 
+	
+SymTable:
+
+Out:
+]
+
+[
+ExeStack:
+	v = 2; 
+	print("v"); 
+	int v; 
+	
+SymTable:
+
+Out:
+]
+
+[
+ExeStack:
+	v = 2; 
+	print("v"); 
+	
+SymTable:
+	v -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	print("v"); 
+	v = 2;
+	
+SymTable:
+	v -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	print("v"); 
+	
+SymTable:
+	v -> 2
+
+Out:
+]
+
+[
+ExeStack:
+	
+SymTable:
+	v -> 2
+
+Out:2 
+]
+

@@ -4,11 +4,9 @@ import Model.Values.BoolValue;
 import Model.Values.Value;
 
 public class BoolType implements Type {
+    @Override
     public boolean equals(Object another){
-        if (another instanceof BoolType)
-            return true;
-        else
-            return false;
+        return another instanceof BoolType;
     }
     public String toString() {
         return "boolean";

@@ -14,7 +14,29 @@ public class ArithmeticalExpression implements Expression {
                 //  2 -
                 //  3 *
                 //  4 /
+    private String op;
 
+    public ArithmeticalExpression(String operation, Expression operand1, Expression operand2) {
+        this.operand1 = operand1;
+        this.operand2 = operand2;
+        this.op = operation;
+
+        switch(operation)
+        {
+            case "+":
+                this.operation = 1;
+                break;
+            case "-":
+                this.operation = 2;
+                break;
+            case "*":
+                this.operation = 3;
+                break;
+            case "/":
+                this.operation = 4;
+                break;
+        }
+    }
 
     public ArithmeticalExpression(Expression operand1, Expression operand2, int operation) {
         this.operand1 = operand1;
@@ -65,4 +87,9 @@ public class ArithmeticalExpression implements Expression {
         throw new MyException("Left-hand operand is not a number.");
 
      }
+
+    @Override
+    public String toString() {
+        return operand1 + " " + op + " " + operand2;
+    }
 }

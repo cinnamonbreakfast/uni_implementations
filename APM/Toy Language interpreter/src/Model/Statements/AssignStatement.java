@@ -39,10 +39,9 @@ public class AssignStatement implements IStatement {
 
     @Override
     public String toString() {
-        return "AssignStatement{" +
-                "id='" + id + '\'' +
-                ", expression=" + expression +
-                '}';
+        return id +
+                " = " + expression +
+                ";";
     }
 
     public IStatement deepCopy()

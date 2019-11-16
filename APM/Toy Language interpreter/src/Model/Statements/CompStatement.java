@@ -23,10 +23,7 @@ public class CompStatement implements IStatement {
 
     @Override
     public String toString() {
-        return "ComparisonStatement{" +
-                "first=" + first +
-                ", second=" + second +
-                '}';
+        return first + " \n\t" + second;
     }
 
     public IStatement deepCopy()

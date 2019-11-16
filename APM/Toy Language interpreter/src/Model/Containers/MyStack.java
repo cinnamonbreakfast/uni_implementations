@@ -42,7 +42,7 @@ public class MyStack<T> implements IStack<T> {
     {
         StringBuilder s = new StringBuilder();
         for(T elem : this.stack) {
-            s.append(elem.toString()).append(" ");
+            s.append(elem.toString()).append("\n\t");
         }
 
         return s.toString();

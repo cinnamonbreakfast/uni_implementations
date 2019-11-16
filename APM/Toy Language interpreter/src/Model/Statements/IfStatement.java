@@ -44,11 +44,10 @@ public class IfStatement implements IStatement {
 
     @Override
     public String toString() {
-        return "IfStatement{" +
-                "if(" + exp +
-                ") then (" + doif +
-                ") else (" + doEsle +
-                ')';
+        return "if(" + exp +
+                ") then {" + doif +
+                "} \n\t\telse { " + doEsle +
+                " };";
     }
 
     public IStatement deepCopy()

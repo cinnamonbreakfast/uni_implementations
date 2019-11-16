@@ -1,27 +1,30 @@
 package Model;
 
-import Model.Containers.MyDictionary;
-import Model.Containers.MyList;
-import Model.Containers.MyStack;
+import Model.Containers.*;
 import Model.Statements.IStatement;
+import Model.Values.StringValue;
 import Model.Values.Value;
 
+import java.io.BufferedReader;
+
 public class ProgramState {
-    MyStack<IStatement> exeStack;
-    MyDictionary<String, Value> symTable;
-    MyList<Value> out;
+    private IStack<IStatement> exeStack;
+    private IDictionary<String, Value> symTable;
+    private IList<Value> out;
+    private IDictionary<StringValue, BufferedReader> fileTable;
 
-    IStatement originalProgram;
+    private IStatement originalProgram;
 
-    public ProgramState(MyStack<IStatement> exeStack, MyDictionary<String, Value> symTable, MyList<Value> out, IStatement originalProgram) {
+    public ProgramState(IStack<IStatement> exeStack, IDictionary<String, Value> symTable, IDictionary<StringValue, BufferedReader> fileTable, IList<Value> out, IStatement originalProgram) {
         this.exeStack = exeStack;
         this.symTable = symTable;
+        this.fileTable = fileTable;
         this.out = out;
         this.originalProgram = originalProgram;
-        exeStack.push(originalProgram);
+//        exeStack.push(originalProgram);
     }
 
-    public MyStack<IStatement> getExeStack()
+    public IStack<IStatement> getExeStack()
     {
         return exeStack;
     }
@@ -30,7 +33,7 @@ public class ProgramState {
         this.exeStack = exeStack;
     }
 
-    public MyDictionary<String, Value> getSymTable() {
+    public IDictionary<String, Value> getSymTable() {
         return symTable;
     }
 
@@ -38,7 +41,7 @@ public class ProgramState {
         this.symTable = symTable;
     }
 
-    public MyList<Value> getOut() {
+    public IList<Value> getOut() {
         return out;
     }
 
@@ -54,8 +57,24 @@ public class ProgramState {
         this.originalProgram = originalProgram;
     }
 
+    public IDictionary<StringValue, BufferedReader> getFileTable() {
+        return fileTable;
+    }
+
+    public void setSymTable(IDictionary<String, Value> symTable) {
+        this.symTable = symTable;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "\nExeStack:\n\t" + exeStack +
+                "\nSymTable:\n" + symTable +
+                "\nOut:" + out;
+    }
+
     public ProgramState deepCopy()
     {
-        return new ProgramState(exeStack, symTable, out, originalProgram);
+        return new ProgramState(exeStack, symTable, fileTable, out, originalProgram);
     }
 }

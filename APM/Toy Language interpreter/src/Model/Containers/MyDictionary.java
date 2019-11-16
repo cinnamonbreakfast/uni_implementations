@@ -64,7 +64,7 @@ public class MyDictionary<K, V> implements IDictionary<K, V> {
     {
         String s = "";
         for(K key : dict.keySet())
-            s += key.toString() + " -> " + dict.get(key).toString() + "\n";
+            s += "\t" + key.toString() + " -> " + dict.get(key).toString() + "\n";
         return s;
     }
 

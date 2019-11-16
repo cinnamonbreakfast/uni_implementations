@@ -1,0 +1,552 @@
+[
+ExeStack:
+	string varf;  
+	varf = test.in; 
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+
+Out:
+]
+
+[
+ExeStack:
+	string varf;  
+	varf = test.in; 
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+
+Out:
+]
+
+[
+ExeStack:
+	varf = test.in; 
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	string varf; 
+	
+SymTable:
+
+Out:
+]
+
+[
+ExeStack:
+	varf = test.in; 
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> 
+
+Out:
+]
+
+[
+ExeStack:
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	varf = test.in;
+	
+SymTable:
+	varf -> 
+
+Out:
+]
+
+[
+ExeStack:
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+
+Out:
+]
+
+[
+ExeStack:
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	openRFile
+	
+SymTable:
+	varf -> test.in
+
+Out:
+]
+
+[
+ExeStack:
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+
+Out:
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	int varc; 
+	
+SymTable:
+	varf -> test.in
+
+Out:
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	Reading varf - varc
+	
+SymTable:
+	varf -> test.in
+	varc -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	print("varc"); 
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:15 
+]
+
+[
+ExeStack:
+	print("varc");  
+	closeRFile
+	Reading varf - varc
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:15 
+]
+
+[
+ExeStack:
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 
+]
+
+[
+ExeStack:
+	closeRFile
+	print("varc"); 
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 
+]
+
+[
+ExeStack:
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 50 
+]
+
+[
+ExeStack:
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 50 
+]
+
+[
+ExeStack:
+	string varf;  
+	varf = test.in; 
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+
+Out:
+]
+
+[
+ExeStack:
+	string varf;  
+	varf = test.in; 
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+
+Out:
+]
+
+[
+ExeStack:
+	varf = test.in; 
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	string varf; 
+	
+SymTable:
+
+Out:
+]
+
+[
+ExeStack:
+	varf = test.in; 
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> 
+
+Out:
+]
+
+[
+ExeStack:
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	varf = test.in;
+	
+SymTable:
+	varf -> 
+
+Out:
+]
+
+[
+ExeStack:
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+
+Out:
+]
+
+[
+ExeStack:
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	openRFile
+	
+SymTable:
+	varf -> test.in
+
+Out:
+]
+
+[
+ExeStack:
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+
+Out:
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	int varc; 
+	
+SymTable:
+	varf -> test.in
+
+Out:
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	Reading varf - varc
+	
+SymTable:
+	varf -> test.in
+	varc -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	print("varc"); 
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:15 
+]
+
+[
+ExeStack:
+	print("varc");  
+	closeRFile
+	Reading varf - varc
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:15 
+]
+
+[
+ExeStack:
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 
+]
+
+[
+ExeStack:
+	closeRFile
+	print("varc"); 
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 
+]
+
+[
+ExeStack:
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 50 
+]
+
+[
+ExeStack:
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 50 
+]
+

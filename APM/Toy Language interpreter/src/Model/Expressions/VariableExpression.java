@@ -23,8 +23,6 @@ public class VariableExpression implements Expression {
 
     @Override
     public String toString() {
-        return "VariableExpression{" +
-                "name='" + name + '\'' +
-                '}';
+        return name;
     }
 }

@@ -31,10 +31,7 @@ public class VariableDeclStatement implements IStatement {
 
     @Override
     public String toString() {
-        return "VariableDeclStatement{" +
-                "name='" + name + '\'' +
-                ", type=" + type +
-                '}';
+        return type + " " + name + "; ";
     }
 
     public IStatement deepCopy()
