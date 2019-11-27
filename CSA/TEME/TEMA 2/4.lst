@@ -1,0 +1,33 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit
+     6                                  import exit msvcrt.dll
+     7                                  
+     8                                  
+     9                                  ; a, b, c, d, x : word
+    10                                  ; (a-b+c)-(d+d)
+    11                                  segment data use32 class=data
+    12 00000000 0A00                        a dw 10
+    13 00000002 0500                        b dw 5
+    14 00000004 0300                        c dw 3
+    15 00000006 0400                        d dw 4
+    16 00000008 00                          x db 0
+    17                                  
+    18                                  
+    19                                  segment code use32 class=code
+    20                                      start:
+    21 00000000 66A1[00000000]                  MOV AX, [a]
+    22 00000006 662B05[02000000]                SUB AX, [b]
+    23 0000000D 660305[04000000]                ADD AX, [c]
+    24                                          
+    25 00000014 668B1D[06000000]                MOV BX, [d]
+    26 0000001B 66031D[06000000]                ADD BX, [d]
+    27                                          
+    28 00000022 6629D8                          SUB AX, BX
+    29 00000025 66A3[08000000]                  MOV [x], AX
+    30                                      
+    31                                          ; exit(0)
+    32 0000002B 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    33 0000002D FF15[00000000]                  call    [exit]       ; call exit to terminate the program

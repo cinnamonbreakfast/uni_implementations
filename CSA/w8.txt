@@ -1,0 +1,189 @@
+bits 32
+
+global start
+
+extern exit, printf
+import exit msvcrt.dll
+import printf msvcrt.dll
+
+segment data use32 class=data
+    mesaj db "ana are mere", 0
+
+segment code use32 class=code:
+    start:
+        push mesaj
+        call [printf]
+        
+        add ESP, 4*1
+    
+    push dword 0
+    call [exit]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    bits 32
+
+global start
+
+extern exit, printf
+import exit msvcrt.dll
+import printf msvcrt.dll
+
+segment data use32 class=data
+    format db "%d + %d = %d", 0
+    
+    a dd 1
+    b dd 2
+    s dd 0
+
+segment code use32 class=code:
+    start:
+        mov EAX, [a]
+        add EAX, [b]
+        mov [s], EAX
+        
+        push dword [s]
+        push dword [b]
+        push dword [a]
+        push format
+        call [printf]
+        
+        add ESP, 4*4
+    
+    push dword 0
+    call [exit]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    bits 32
+
+global start
+
+extern exit, printf, scanf
+import exit msvcrt.dll
+import printf msvcrt.dll
+import scanf msvcrt.dll
+
+segment data use32 class=data
+    n dd 0
+    format db "%d", 0
+    mesaj db "n=", 0
+    mesaj2 db "nr este %d", 0
+
+segment code use32 class=code:
+    start:
+        push mesaj
+        call [printf]
+        add esp, 4*1
+        
+        push n
+        push format
+        call [scanf]
+        
+        add esp, 4*2
+        
+        push dword [n]
+        push mesaj2
+        call [printf]
+        add esp, 4*2
+    
+    push dword 0
+    call [exit]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    bits 32
+
+global start
+
+extern exit, printf, scanf
+import exit msvcrt.dll
+import printf msvcrt.dll
+import scanf msvcrt.dll
+
+segment data use32 class=data
+    format db "%s", 0
+    mesaj db "sirul este: %s", 0
+    sir times 100 db 0
+    
+
+segment code use32 class=code:
+    start:
+        push sir
+        push format
+        call [scanf]
+        add esp, 4*2
+        
+        push sir
+        push mesaj
+        call [printf]
+        add esp, 4*2
+        
+    push dword 0
+    call [exit]

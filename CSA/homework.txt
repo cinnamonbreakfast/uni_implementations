@@ -1,0 +1,40 @@
+bits 32
+
+global start        
+
+extern exit
+import exit msvcrt.dll
+
+; Obtain the string D by concatenating the elements of S2 in reverse order and the elements found on even positions in S1. 
+;   S1: '+', '2', '2', 'b', '8', '6', 'X', '8'
+;   S2: 'a', '4', '5'
+;   D: '5', '4', 'a', '2','b', '6', '8'
+
+segment data use32 class=data
+    S1 db '+22b86X8'
+    S2 db 'a45'
+    len1 EQU ($-S1)/2-1
+    len2 EQU ($-S2)
+    D times (len1+len2) db 2
+
+segment code use32 class=code
+    start:
+        MOV ECX, len1
+        JECXZ final
+        
+        MOV ESI, S1
+        MOV EDI, D
+        ADD ESI, len1*2
+        ADD EDI, 4
+        
+        STD
+        
+        bucla:
+            LODSB
+            LODSB
+            STOSB
+        LOOP bucla
+        
+        final:
+        push    dword 0
+        call    [exit]

@@ -1,0 +1,29 @@
+     1                                  bits 32
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit
+     6                                  import exit msvcrt.dls
+     7                                  
+     8                                  segment data use32 class=data
+     9 00000000 61626364                    a db 'abcd'
+    10                                      LEN EQU ($-a)
+    11 00000004 00<rept>                    b TIMES LEN DB 0
+    12                                      
+    13                                  
+    14                                  segment code use32 class=code
+    15                                      start:
+    16 00000000 B800000000                      MOV EAX, 0
+    17                                          
+    18                                          bucla:
+    19 00000005 8A81[00000000]                      MOV AL, [a + ECX]
+    20 0000000B 2C20                                SUB AL, 'a' - 'A'
+    21 0000000D 8881[04000000]                      MOV [b + ECX], AL
+    22                                              
+    23 00000013 41                                  INC ECX
+    24 00000014 83F904                              CMP ECX, LEN
+    25 00000017 72EC                                JB bucla
+    26                                          
+    27                                          
+    28 00000019 6A00                            push    dword 0
+    29 0000001B FF15[00000000]                  call    [exit]

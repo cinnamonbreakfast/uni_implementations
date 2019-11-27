@@ -1,0 +1,300 @@
+CMP EAX, EBX
+JL .then
+; else
+	MOV ECX, 1
+	JMP peste_then
+.then:
+	MOV ECX, 0
+
+peste_then:
+;stuff
+
+
+
+
+
+
+
+
+
+
+
+LODSD - load string of dwords
+
+	EAX <- [ESI]
+	if DF = 0
+		ESI = ESI + 4
+	else
+		ESI = ESI - 4
+
+
+
+
+
+LOSDB - load string of bytes
+	AL <- [ESI]
+	if DF = 0
+		ESI = ESI + 1
+	else
+		ESI = ESI - 1
+
+
+
+
+LODSW - load string of words
+	AX <- [ESI]
+
+	if DF = 0
+		ESI = ESI + 2
+	else
+		ESI = ESI - 2
+
+
+
+01 00 00 00 02 00 00 00 03 00 00 00 04 00 00 00
+ a           a           a           a
+             +4          +8          +12
+
+
+
+             ESI = a + (len-1)*4   (ultimul element)
+
+             MOV ESI, a
+             ADD ESI, (len-1)*4
+
+
+
+segment data use32 class=data
+    a dd 1, 2, 3, 4
+    len EQU ($-a)/4
+
+segment code use32 class=code
+    start:
+        ; do
+        ;   sum = sum + a[i]
+        ; while ( i<len ) 
+        MOV ECX, len
+        
+        JECXZ final
+        
+        MOV ESI, a  ; [ESI]
+        MOV EBX, 0
+        CLD ; clear DF              remove if not (1)
+        
+        bucla:
+            ;MOV EAX, [ESI]
+            ;ADD ESI, 4 ; I++           (1)     OR YOU CAN:
+            LODSD0
+            
+            ADD EBX, EAX ; SUM = SUM + A[I]
+        LOOP bucla
+        
+        
+        
+        final:
+        push    dword 0
+        call    [exit]
+
+
+
+
+
+
+
+
+
+
+
+
+STOSB - store string of bytes
+
+	[ESI] <- AL
+
+	if DF = 0
+		EDI += 1
+	else
+		EDI -= 1
+
+STOSW - store string of words
+	
+	[ESI] <- AX
+	if DF = 0
+		EDI += 2
+	else
+		EDI -= 2
+
+
+STOSD = store string of dwords
+	
+	[EDI] <- EAX
+
+	if DF = 0
+		EDI += 4
+	else
+		EDI -= 4
+
+
+
+
+segment data use32 class=data
+    a dd 1, 2, 3, 4
+    len EQU ($-a)/4
+
+segment code use32 class=code
+    start:
+        MOV ECX, len
+        JECXZ final
+        
+        MOV ESI, a
+        ADD ESI, (len-1)*4
+
+        STD ; DF = 1
+        
+        
+        MOV EBX, 0
+        
+        bucla:
+            LODSD           ; EAX = a[i] ; i++
+            ADD EBX, EAX    ; s = s + a[i]
+            loop bucla
+        
+        
+        push    dword 0
+        call    [exit]
+
+
+
+
+MOVSB - move string of bytes
+	
+	[ESI] <- byte [ESI]
+
+	if DF = 0
+		ESI += 1
+		EDI += 1
+	else
+		ESI -= 1
+		EDI -= 1
+
+MOVSW - move string of words
+
+	[EDI] <- word [ESI]
+
+	if DF = 0
+		ESI += 2
+		EDI += 2
+	else
+		ESI -= 2
+		EDI -= 2
+
+MOVSD - move string of dwords
+	
+	[EDI] - dword [ESI]
+
+
+	if DF = 0
+		ESI += 4
+		EDI += 4
+	else
+		ESI -= 4
+		EDI -= 4
+
+
+
+
+bits 32
+
+global start        
+
+extern exit
+import exit msvcrt.dls
+
+segment data use32 class=data
+    a dw 0x1234, 0xABCD, 0xEF03
+    len EQU ($-a)/2
+    b times len db 0
+
+segment code use32 class=code
+    start:
+        MOV ECX, len
+        JECXZ final
+        
+        MOV ESI, a
+        MOV EDI, b
+        
+        CLD
+        
+        bucla:
+            ; AX <- a[i]
+            
+            LODSW ; AX = a[i]
+            STOSB ; b[i] = AL
+        LOOP bucla
+        
+        final:
+        push    dword 0
+        call    [exit]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+     1                                  bits 32
+     2                                  
+     3                                  global start
+     4                                  
+     5                                  extern exit, fprintf, fclose, fopen
+     6                                  import exit msvcrt.dll
+     7                                  import fprintf msvcrt.dll
+     8                                  import fclose msvcrt.dll
+     9                                  import fopen msvcrt.dll
+    10                                  
+    11                                  segment data use32 class=data
+    12 00000000 6E6563756C61692E74-         nume db "neculai.txt", 0
+    12 00000009 787400             
+    13 0000000C 7700                        mod_acces db "w", 0
+    14 0000000E 00000000                    file_descr dd 0
+    15 00000012 436520666163202564-         text db "Ce fac %d neculai", 0
+    15 0000001B 206E6563756C616900 
+    16                                      
+    17                                  segment code use32 class=code:
+    18                                      start:
+    19                                          ; open
+    20 00000000 68[0C000000]                    push mod_acces
+    21 00000005 68[00000000]                    push nume
+    22 0000000A FF15[00000000]                  call [fopen]
+    23                                          
+    24 00000010 83C408                          add esp, 4*2
+    25                                          
+    26                                          ; if open successfully
+    27 00000013 83F800                          cmp eax, 0
+    28 00000016 742C                            je final
+    29                                          
+    30 00000018 A3[0E000000]                    mov [file_descr], eax
+    31                                          
+    32                                          ; write
+    33 0000001D 68[12000000]                    push text
+    34 00000022 FF35[0E000000]                  push dword [file_descr]
+    35 00000028 FF15[00000000]                  call [fprintf]
+    36                                          
+    37                                          ; close
+    38 0000002E 6A11                            push dword 17
+    39 00000030 68[12000000]                    push dword text
+    40 00000035 FF35[0E000000]                  push dword [file_descr]
+    41 0000003B FF15[00000000]                  call [fclose]
+    42 00000041 83C40C                          add esp, 4*3
+    43                                          
+    44                                          final:
+    45 00000044 6A00                        push dword 0
+    46 00000046 FF15[00000000]              call [exit]

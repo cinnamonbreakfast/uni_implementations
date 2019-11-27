@@ -1,0 +1,224 @@
+bits 32 ; assembling for the 32 bits architecture
+
+global start        
+
+
+extern exit
+import exit msvcrt.dll 
+
+
+segment data use32 class=data
+    a db 1, 2, 3
+    len equ ($-a)
+    b db 1, 4, 3
+
+
+segment code use32 class=code
+    start:
+        CLD
+        MOV ESI, a
+        MOV EDI, b
+        
+        MOV ECX, len
+        MOV EDX, 0
+        
+        bucla:
+           cmpsb ; cmp byte [esi], [edi]
+           je mai_departe
+           mov edx, 1
+           jmp afara
+           
+        mai_departe:
+            loop bucla
+            
+            
+        afara:
+    
+        ; exit(0)
+        push    dword 0      ; push the parameter for exit onto the stack
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bits 32 ; assembling for the 32 bits architecture
+
+global start        
+
+
+extern exit
+import exit msvcrt.dll 
+
+
+segment data use32 class=data
+    a db 1, 3, 2, 7, 5, 4
+    len EQU ($-a)
+
+
+segment code use32 class=code
+    start:
+        MOV EDX, 0
+        
+        bucla_while:
+            MOV EDX, 1 ; ok = true
+            
+            MOV ESI, 0
+            MOV ECX, len - 1
+            
+            JECXZ final
+            
+            bucla_for:
+                MOV AL, [a+ESI] ; AL = a[i]
+                
+                CMP AL, [a + ESI + 1]
+                
+                JG interschimba
+                JMP mai_departe
+                interschimba:
+                    MOV AH, [a + ESI + 1]
+                    MOV [a + ESI + 1], AL
+                    MOV [a + ESI], AH
+                    MOV EDX, 0
+                    
+                mai_departe:
+                    INC ESI
+            LOOP bucla_for
+            
+           CMP EDX, 0
+        JE bucla_while
+    
+        final:
+        ; exit(0)
+        push    dword 0      ; push the parameter for exit onto the stack
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bits 32 ; assembling for the 32 bits architecture
+
+global start        
+
+
+extern exit
+import exit msvcrt.dll 
+
+
+segment data use32 class=data
+    a db 'abcdef'
+    len EQU ($-a)
+    c db 'e'
+
+
+segment code use32 class=code
+    start:
+        ; SCASB  ::  CMP AL, [EDI]
+        
+        MOV ECX, len
+        CLD
+        
+        MOV EDI, a
+        MOV AL, [c]
+        
+        bucla:
+            SCASB
+            JE gasit
+        loop bucla
+        MOV EAX, 0
+        JMP final
+        
+        gasit:
+            MOV EAX, 1
+        final:
+        ; exit(0)
+        push    dword 0      ; push the parameter for exit onto the stack
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

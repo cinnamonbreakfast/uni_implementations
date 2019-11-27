@@ -1,0 +1,36 @@
+     1                                  bits 32
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit
+     6                                  import exit msvcrt.dll
+     7                                  
+     8                                  ;Given an array A of words, build two arrays of bytes:  
+     9                                  ;   -   array B1 contains as elements the higher part of the words from A
+    10                                  ;   -   array B2 contains as elements the lower part of the words from A
+    11                                  
+    12                                  segment data use32 class=data
+    13 00000000 341212AB1111                A dw 0x1234, 0xAB12, 0x1111
+    14                                      len EQU ($-A)
+    15 00000006 00<rept>                    B1 times len db 0
+    16 0000000C 00<rept>                    B2 times len db 0
+    17                                      
+    18                                  
+    19                                  segment code use32 class=code
+    20                                      start:
+    21 00000000 B906000000                      MOV ECX, len
+    22 00000005 E30F                            JECXZ final
+    23                                          
+    24 00000007 BE[00000000]                    MOV ESI, A
+    25 0000000C BF[06000000]                    MOV EDI, B1
+    26                                  
+    27                                          bucla:
+    28 00000011 66AD                                LODSW ; AX = a[i]
+    29                                              ;CMP AL, AH
+    30 00000013 AA                                  STOSB
+    31                                  
+    32 00000014 E2FB                            LOOP bucla
+    33                                  
+    34                                          final:
+    35 00000016 6A00                            push    dword 0
+    36 00000018 FF15[00000000]                  call    [exit]

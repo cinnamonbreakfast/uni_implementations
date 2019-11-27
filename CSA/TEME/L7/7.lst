@@ -1,0 +1,47 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  
+     6                                  extern exit
+     7                                  import exit msvcrt.dll 
+     8                                  
+     9                                  
+    10                                  segment data use32 class=data
+    11 00000000 313233343536373839-         a db '1234567890'
+    11 00000009 30                 
+    12                                      len_a EQU ($-a)
+    13 0000000A 613162336337                b db 'a1b3c7'
+    14                                      len_b EQU ($-b)
+    15                                  
+    16                                  
+    17                                  segment code use32 class=code
+    18                                      start:
+    19 00000000 BA00000000                      MOV EDX, 0 ; EDX = count
+    20 00000005 BE[00000000]                    MOV ESI, a
+    21 0000000A BF[0A000000]                    MOV EDI, b
+    22                                          
+    23 0000000F FC                              CLD
+    24                                          
+    25 00000010 B90A000000                      MOV ECX, len_a
+    26                                          
+    27                                          bucla_for_1:
+    28 00000015 AC                                  LODSB ; AL = a[i]
+    29                                              
+    30 00000016 BF[0A000000]                        MOV EDI, b
+    31 0000001B 51                                  push ecx
+    32 0000001C B906000000                          MOV ECX, len_b
+    33                                              bucla_for_2:
+    34 00000021 AE                                      SCASB ; cmp al, b[j]
+    35 00000022 7404                                    JE found
+    36 00000024 E2FB                                LOOP bucla_for_2
+    37 00000026 EB01                                jmp mai_departe
+    38                                              found:
+    39 00000028 42                                      INC EDX ; count++
+    40                                                  
+    41                                              mai_departe:
+    42 00000029 59                                  pop ecx
+    43 0000002A E2E9                            LOOP bucla_for_1
+    44                                              
+    45                                          ; exit(0)
+    46 0000002C 6A00                            push    dword 0      ; push the parameter for exit onto the stack

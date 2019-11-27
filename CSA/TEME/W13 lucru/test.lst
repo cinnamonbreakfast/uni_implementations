@@ -1,0 +1,105 @@
+     1                                  bits 32
+     2                                  
+     3                                  global start
+     4                                  
+     5                                  extern exit, scanf, fopen, fprintf, printf, fclose
+     6                                  import exit msvcrt.dll
+     7                                  import scanf msvcrt.dll
+     8                                  import fopen msvcrt.dll
+     9                                  import fprintf msvcrt.dll
+    10                                  import printf msvcrt.dll
+    11                                  import fclose msvcrt.dll
+    12                                  
+    13                                  segment data use32 class=data
+    14 00000000 6E72782E74787400            file db "nrx.txt", 0
+    15 00000008 772B00                      mode db 'w+', 0
+    16 0000000B 00000000                    fd dd 0
+    17 0000000F 53656376656E74613A-         mesaj1 db 'Secventa:', 10, 0
+    17 00000018 0A00               
+    18 0000001A 46696C6520636C6F73-         mesaj2 db 'File closed', 10, 0
+    18 00000023 65640A00           
+    19                                      
+    20 00000027 25782000                    hex db '%x', 32, 0
+    21 0000002B 256400                      dcc db '%d', 0
+    22 0000002E 25640A00                    dcp db '%d', 10, 0
+    23                                      
+    24 00000032 00000000                    nr2 dd 0
+    25                                      
+    26 00000036 00000000                    nr dd 0
+    27                                      
+    28                                  segment code use32 class=code:
+    29                                      start:
+    30 00000000 68[0F000000]                    push mesaj1
+    31 00000005 FF15[00000000]                  call [printf]
+    32 0000000B 83C404                          add esp, 4
+    33                                          
+    34 0000000E 68[08000000]                    push mode
+    35 00000013 68[00000000]                    push file
+    36 00000018 FF15[00000000]                  call [fopen]
+    37 0000001E 83C404                          add esp, 4
+    38                                          
+    39 00000021 A3[0B000000]                    mov [fd], eax
+    40                                          
+    41                                          citire:
+    42 00000026 68[36000000]                        push dword nr
+    43 0000002B 68[2B000000]                        push dword dcc
+    44 00000030 FF15[00000000]                      call [scanf]
+    45 00000036 83C408                              add esp, 4*2
+    46                                              
+    47 00000039 B800000000                          mov eax, 0
+    48 0000003E A1[36000000]                        mov eax, [nr]
+    49                                              
+    50 00000043 83F800                              cmp eax, dword 0
+    51 00000046 7466                                je gata_citire
+    52                                              
+    53 00000048 FF35[36000000]                      push dword [nr]
+    54 0000004E 68[27000000]                        push dword hex
+    55 00000053 FF35[0B000000]                      push dword [fd]
+    56 00000059 FF15[00000000]                      call [fprintf]
+    57 0000005F 83C40C                              add esp, 4*3
+    58                                              
+    59 00000062 B91F000000                          mov ecx, 31         ; loop
+    60 00000067 C605[32000000]00                    mov [nr2], byte 0   ; counter
+    61 0000006E A1[36000000]                        mov eax, [nr]       ; nr
+    62 00000073 BB00000000                          mov ebx, 0          ; byte to compare
+    63                                              nrb:
+    64 00000078 88C3                                mov bl, al
+    65 0000007A 80E301                              and bl, 1b
+    66                                              
+    67 0000007D 80FB01                              cmp bl, byte 1
+    68                                              
+    69 00000080 7402                                je bit
+    70 00000082 7507                                jne nbit
+    71                                              bit:
+    72 00000084 8005[32000000]01                        add [nr2], byte 1
+    73                                              nbit:
+    74 0000008B D1E0                                    shl eax, 1
+    75 0000008D E2E9                                loop nrb
+    76                                              
+    77 0000008F FF35[32000000]                      push dword [nr2]
+    78 00000095 68[2E000000]                        push dword dcp
+    79 0000009A FF35[0B000000]                      push dword [fd]
+    80 000000A0 FF15[00000000]                      call [fprintf]
+    81 000000A6 83C40C                              add esp, 4*3
+    82                                                  
+    83                                              
+    84 000000A9 E978FFFFFF                      jmp citire
+    85                                          
+    86                                          gata_citire:
+    87                                          
+    88 000000AE FF35[0B000000]                  push dword [fd]
+    89 000000B4 FF15[00000000]                  call [fclose]
+    90 000000BA 83C404                          add esp, 4
+    91                                          
+    92 000000BD 68[1A000000]                    push mesaj2
+    93 000000C2 FF15[00000000]                  call [printf]
+    94 000000C8 83C404                          add esp, 4
+    95                                          
+    96                                          ; 2 : 0010 -> 1
+    97                                          ; 4 : 0100 -> 1
+    98                                          
+    99                                          
+   100                                          
+   101 000000CB 6A00                        push dword 0
+   102 000000CD FF15[00000000]              call [exit]
+   103                                      

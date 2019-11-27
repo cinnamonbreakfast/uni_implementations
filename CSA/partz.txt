@@ -1,0 +1,294 @@
+lea <dest>, <src> - load effective address (incarca in destinatie adresa sursei)
+
+sir dd 1, 2, 3
+
+lea EAX, [sir]    --- incarca in EAX adresa primului element din sir (identic: mov EAX, sir)
+
+lea EAX, [sir+4]  --- mov eax, sir ; add eax, 4
+
+
+( nu putem mov eax, sir+4 )
+
+
+lea EAX, sir ------ assembly error (syntax)
+
+
+ce i place lui V
+
+
+lea EAX, [EBX]     ---->     mov EAX, EBX
+
+lea EAX, [EBX * 2] ---->     mov EAX, EBX * 2    - NOT VALID!
+							SAU							mov EAX, EBX
+							 mov EAX, EBX				mul EBX
+							 add EAX, EBX
+
+
+push dword 0xFF
+push dword 0xAB
+
+lea EAX, [ESP + 4]
+mov EBX, [EAX]
+
+EBX = FF
+
+
+
+
+
+a times 2 0x1234
+b db 0x16
+c equ $-a
+
+34 12 00 00 34 12 00 00 16 $
+0  1  2  3  4  5  6  7  8
+
+c = 9
+
+care e byte ul de la offset ul 6?
+offset = dist fata de inceputul segm de date
+
+R: 00
+
+
+a db 1, 2, 3, 4
+01 02 03 04
+
+
+a db 10
+b dq 17
+c equ $-a
+d dd 20
+						   $
+10 17 00 00 00 00 00 00 00 00
+
+c = 9
+
+
+
+
+
+
+
+a dw 0xABCD, 0xFEDC
+
+MEM: CD ABM DC FE
+
+mov ESI, a
+lodsb
+lodsw
+
+ax = DCAB
+
+
+
+
+xlat - (no operands)   AL = [EBX + AL]
+
+hexaTable db '0123456789ABCDEF'
+val db 14
+
+mov al, [val] 			; al = 14
+lea EBX, [hexaTable]	; EBX devine adresa tabelei de translatie
+xlat					; al = E
+
+
+
+
+
+
+
+
+
+ADD - 
+	1000 0000+
+	1000 0000
+	---------
+ 1  0000 0000
+
+CF = 1
+OF = 1
+SF = 0
+ZF = 1
+
+
+
+	0100 0000+
+	0100 0000
+	---------
+	1000 0000
+
+OF = 1
+CF = 0
+
+
+
+SUB - 
+	
+    1000 0000-
+	1000 0001
+	---------
+	 111 1111
+
+CF = 1
+
+	SGN
+	1        -
+	0
+	---------
+	0                >>> OF = 1
+
+	0		 -
+	1
+	---------
+	1				 >>> OF = 1
+
+
+
+
+
+
+MUL - (si IMUL)
+	OF CF
+
+CF = OF = 0   -- partea sup a rez e 0
+CF = OF = 1   -- invers
+
+MUL bl		-> al * bl = AX
+					AH = 0  - > CF = OF = 0
+						altfel - > CF = OF = 1
+
+1 MUL 2		(CF=OF=0)
+2 MUL 129   (CF=OF=1)
+
+CON: daca rez incape in partea inf, flagurile se falfaie 0, daca nu, 1
+
+
+
+
+
+DIV - IDIV              = = = FLAGS ARE UNDEFINED
+
+mov AX, 65535    - max word = FFFF
+mov BL, 10
+
+div BL
+
+
+	-> cat: AL     6553
+	-> rst: AH				=> EROARE DE EXECUTIE, "division by 0"   (runtime error)
+
+
+
+
+mov ECX, -1 << 12
+
+	FFFFFFFF
+	FFFFF000
+
+
+
+
+ (!)
+mov al, -1
+neg al       (-)
+
+mov al, FE 		1111 1110
+neg al  		0000 0001
+
+1111
+
+
+if DEST = 0
+	CF = 0
+else:
+	CF = 1
+
+DEST = -DEST
+
+
+al : 1111 1111
+bl : 0000 0010
+
+MUL BL  		FF*2
+
+
+IMUL BL 		-1*2
+
+
+
+
+
+
+
+
+
+format db '%x %x+1', 0
+a dd 0x12345678
+b db 0, 1, 2, 3, 4, 5
+
+
+   _____	________
+-> 78 56 34 12 00 01 02 03 04 05
+   a        b
+
+push word [a]
+push dword [a+2]
+push word [b]
+push dword format
+call [printf]
+
+format
+1234|0100
+5678|0100
+
+afis: 12340100 56780100+1
+
+9-12 initiali ai lui EAX = 0-3 ai lui AH dupa executia instructiunii
+---[----]-----[----]
+
+
+shr EAX, 1
+
+
+
+
+mov EAX, -3 & -4
+xor AL, AL
+
+cbw      >> AX = 0
+cwd      >>
+
+EAX = FFFF0000
+
+FFFFFFFD
+FFFFFFFC
+--------
+FFFFFFFD
+
+mov AL, 255
+add AL, -1
+
+    1111 1111+
+    1111 1111
+-------------
+	1111 1110
+
+CF = 1			OF = 0
+
+
+
+
+
+
+
+format '%c $c', 0
+a db '0', '1', '2', '3', '4', '5'
+
+>
+
+push dword [a+1]
+push dword [a]
+push word [a]
+call [printf]
+add esp, 4*2+2

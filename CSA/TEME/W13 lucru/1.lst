@@ -1,0 +1,65 @@
+     1                                  bits 32
+     2                                  
+     3                                  global start
+     4                                  
+     5                                  extern exit, scanf, printf
+     6                                  import exit msvcrt.dll
+     7                                  import scanf msvcrt.dll
+     8                                  import printf msvcrt.dll
+     9                                  
+    10                                  segment data use32 class=data
+    11 00000000 2564206C6574746572-         num_format db "%d letters", 0
+    11 00000009 7300               
+    12 0000000B 257300                      str_format db "%s", 0
+    13                                      
+    14                                      len1 equ 120
+    15 0000000E 00<rept>                    sir times len1 db 0
+    16 00000086 00<rept>                    sir2 times len1 db 0
+    17                                      
+    18 000000FE 00000000                    cnt dd 0
+    19                                      
+    20                                  segment code use32 class=code:
+    21                                      ;strlen:
+    22                                          
+    23                                       ;   mov esp, sir
+    24                                        ;  mov eax, 0
+    25                                          
+    26                                         ; nr:
+    27                                           ;   lodsb
+    28                                          ;    inc eax
+    29                                          ;loop nr
+    30                                          ;ret
+    31                                          
+    32                                      start:
+    33                                      
+    34 00000000 68[0E000000]                    push sir
+    35 00000005 68[0B000000]                    push str_format
+    36 0000000A FF15[00000000]                  call [scanf]
+    37 00000010 83C408                          add esp, 4*2
+    38                                          
+    39 00000013 BE[0E000000]                    mov esi, sir
+    40 00000018 BF[86000000]                    mov edi, sir2
+    41                                          ;mov eax, 0
+    42                                          
+    43                                          nr:
+    44 0000001D AC                                  lodsb
+    45 0000001E FE05[FE000000]                      inc byte [cnt]
+    46 00000024 3C00                                cmp al, 0
+    47 00000026 7405                                je nvm
+    48                                              
+    49 00000028 0401                                add al, 1
+    50 0000002A AA                                  stosb
+    51 0000002B E2F0                            loop nr
+    52                                          
+    53                                          nvm:
+    54                                          
+    55 0000002D FE0D[FE000000]                  dec byte [cnt]
+    56                                          
+    57 00000033 68[86000000]                    push sir2
+    58 00000038 68[0B000000]                    push str_format
+    59 0000003D FF15[00000000]                  call [printf]
+    60 00000043 83C408                          add esp, 4*2
+    61                                      
+    62 00000046 6A00                        push dword 0
+    63 00000048 FF15[00000000]              call [exit]
+    64                                      

@@ -1,0 +1,60 @@
+     1                                  bits 32
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit
+     6                                  import exit msvcrt.dll
+     7                                  
+     8                                  ; Obtain the string D by concatenating the elements of S2 in reverse order and the elements found on even positions in S1. 
+     9                                  ;   S1: '+', '2', '2', 'b', '8', '6', 'X', '8'
+    10                                  ;   S2: 'a', '4', '5'
+    11                                  ;   D: '5', '4', 'a', '2','b', '6', '8'
+    12                                  
+    13                                  segment data use32 class=data
+    14 00000000 2B32326238365838            S1 db '+22b86X8'
+    15                                      len1 EQU ($-S1)/2
+    16                                      
+    17 00000008 613435                      S2 db 'a45'
+    18                                      
+    19                                      len2 EQU ($-S2)
+    20 0000000B 00<rept>                    D times (len1+len2) db 0
+    21                                  
+    22                                  segment code use32 class=code
+    23                                      start:
+    24 00000000 B903000000                      MOV ECX, len2
+    25 00000005 E315                            JECXZ skip1
+    26                                          
+    27 00000007 BE[08000000]                    MOV ESI, S2
+    28 0000000C BF[0B000000]                    MOV EDI, D
+    29 00000011 83C602                          ADD ESI, 2
+    30 00000014 83C700                          ADD EDI, 0
+    31                                          
+    32 00000017 FD                              STD
+    33                                  
+    34                                          sir2:
+    35 00000018 AC                                  LODSB
+    36 00000019 AA                                  STOSB
+    37 0000001A E2FC                            LOOP sir2
+    38                                          
+    39                                          skip1:
+    40                                          
+    41 0000001C B904000000                      MOV ECX, len1
+    42 00000021 E313                            JECXZ final
+    43                                          
+    44 00000023 BE[00000000]                    MOV ESI, S1
+    45 00000028 BF[0B000000]                    MOV EDI, D
+    46 0000002D 83C703                          ADD EDI, len2
+    47                                          
+    48 00000030 FC                              CLD
+    49                                          
+    50                                          sir1:
+    51 00000031 46                                  INC ESI
+    52                                              
+    53 00000032 AC                                  LODSB
+    54                                              
+    55 00000033 AA                                  STOSB
+    56 00000034 E2FB                            LOOP sir1
+    57                                          
+    58                                          final:
+    59 00000036 6A00                            push    dword 0
+    60 00000038 FF15[00000000]                  call    [exit]

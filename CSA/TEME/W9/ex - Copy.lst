@@ -1,0 +1,25 @@
+     1                                  bits 32
+     2                                  
+     3                                  global start
+     4                                  global b
+     5                                  
+     6                                  extern exit, fprintf, fclose, fopen
+     7                                  import exit msvcrt.dll
+     8                                  import fprintf msvcrt.dll
+     9                                  import fclose msvcrt.dll
+    10                                  import fopen msvcrt.dll
+    11                                  
+    12                                  segment data use32 class=data
+    13 00000000 61626364                    a db "abcd"
+    14                                      b equ 1
+    15                                      
+    16                                  segment code use32 class=code:
+    17                                      start:
+    18                                     
+    19 00000000 B840000000                  mov eax, 64
+    20 00000005 BB40000000                  mov ebx, 64
+    21                                      
+    22 0000000A 00D8                        add al, bl
+    23                                      
+    24 0000000C 6A00                        push dword 0
+    25 0000000E FF15[00000000]              call [exit]

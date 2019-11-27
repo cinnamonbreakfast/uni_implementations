@@ -1,0 +1,21 @@
+a dd 0x1, 0x2, 0x3, 0x4
+LEN EQU ($ - a)/4  ; nr elem in a
+
+
+
++---------------------------+
+|	i= len-1				|
+|	do						|
+|		s = s+i				|
+|		i--					|
+|	while i > 0				|
++---------------------------+
+
+MOV EAX, 0
+MOV ECX, LEN
+DEC ECX
+bucla:
+	ADD EAX, [a+ecx*4]
+	DEC ECX
+	CMP ECX, 0
+	JA bucla

@@ -1,0 +1,43 @@
+     1                                  bits 32
+     2                                  
+     3                                  global start
+     4                                  
+     5                                  extern exit, printf, scanf
+     6                                  import exit msvcrt.dll
+     7                                  import printf msvcrt.dll
+     8                                  import scanf msvcrt.dll
+     9                                  
+    10                                  ; An array of dwords is defined in the data segment
+    11                                  ; Display each element
+    12                                  
+    13                                  segment data use32 class=data
+    14 00000000 010000000200000003-         A dd 0x1, 0x2, 0x3, 0x4
+    14 00000009 00000004000000     
+    15                                      
+    16                                      lenA EQU ($-A)/4
+    17                                      
+    18 00000010 25642C20                    msj db "%d, "
+    19                                      
+    20                                  segment code use32 class=code:
+    21                                      start:
+    22 00000000 B901000000                      MOV ECX, 1
+    23 00000005 49                              DEC ECX
+    24                                          
+    25                                          bucla:
+    26 00000006 51                                  push ECX
+    27                                              
+    28 00000007 FF348D[00000000]                    push dword [A+ECX*4]
+    29 0000000E 68[10000000]                        push msj
+    30 00000013 FF15[00000000]                      call [printf]
+    31 00000019 83C408                              add esp, 4*2
+    32                                              
+    33 0000001C 59                                  pop ECX
+    34                                              
+    35 0000001D 41                                  INC ECX
+    36 0000001E 83F904                              CMP ECX, 4
+    37                                              
+    38 00000021 78E3                            JS bucla
+    39                                          
+    40                                          
+    41 00000023 6A00                        push dword 0
+    42 00000025 FF15[00000000]              call [exit]

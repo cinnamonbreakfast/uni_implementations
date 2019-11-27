@@ -1,0 +1,82 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit
+     6                                  import exit msvcrt.dll
+     7                                  
+     8                                  
+     9                                  ;d-(7-a*b+c)/a-6+x/2
+    10                                  
+    11                                  ; a,c-byte
+    12                                  ; b-word
+    13                                  ; d-doubleword
+    14                                  ; x-qword
+    15                                  segment data use32 class=data
+    16 00000000 03                          a db 3
+    17 00000001 0300                        b dw 3
+    18 00000003 03                          c db 3
+    19 00000004 07000000                    d dd 7
+    20 00000008 0300000000000000            x dq 3
+    21 00000010 00000000                    aux dd 0
+    22                                  
+    23                                  
+    24                                  segment code use32 class=code
+    25                                      start:
+    26 00000000 A0[00000000]                    MOV AL, [a] ; move a to AL 
+    27 00000005 6698                            CBW         ; convert a to word
+    28 00000007 66F72D[01000000]                IMUL word [b]; DX:AX = a*b
+    29                                          
+    30                                          ; EAX <- DX:AX
+    31 0000000E 6652                            PUSH DX
+    32 00000010 6650                            PUSH AX
+    33 00000012 58                              POP EAX
+    34                                          
+    35 00000013 89C3                            MOV EBX, EAX
+    36 00000015 66B80700                        MOV AX, 7
+    37 00000019 98                              CWDE
+    38 0000001A 29D8                            SUB EAX, EBX
+    39 0000001C 89C3                            MOV EBX, EAX
+    40 0000001E A0[03000000]                    MOV AL, [c]
+    41 00000023 6698                            CBW
+    42 00000025 98                              CWDE
+    43 00000026 01D8                            ADD EAX, EBX
+    44                                          
+    45 00000028 A3[10000000]                    MOV [aux], EAX
+    46                                          
+    47 0000002D A0[00000000]                    MOV AL, [a]
+    48 00000032 6698                            cbw
+    49 00000034 6689C1                          mov CX, AX
+    50                                          
+    51 00000037 66A1[10000000]                  MOV AX, [aux]
+    52 0000003D 668B15[12000000]                MOV DX, [aux+2]
+    53                                          
+    54 00000044 66F7F9                          IDIV CX
+    55                                          
+    56 00000047 8B1D[04000000]                  MOV EBX, [d]
+    57 0000004D 98                              CWDE
+    58 0000004E 29C3                            SUB EBX, EAX
+    59 00000050 83EB06                          SUB EBX, 6
+    60                                          
+    61 00000053 66891D[01000000]                MOV [b], BX
+    62                                          
+    63 0000005A A1[08000000]                    MOV EAX, [x]
+    64 0000005F B902000000                      MOV ECX, 2
+    65                                          
+    66                                          ;IDIV ECX
+    67                                          
+    68 00000064 A1[08000000]                    MOV EAX, [x]
+    69 00000069 8B15[0C000000]                  MOV EDX, [x+4]
+    70                                          
+    71 0000006F 66BB0200                        MOV BX, 2
+    72                                          
+    73 00000073 66F7FB                          IDIV BX
+    74                                          
+    75 00000076 0305[01000000]                  ADD EAX, [b]
+    76                                          
+    77                                          
+    78                                          
+    79                                          
+    80                                          ; exit(0)
+    81 0000007C 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    82 0000007E FF15[00000000]                  call    [exit]       ; call exit to terminate the program

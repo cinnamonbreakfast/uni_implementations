@@ -1,0 +1,4 @@
+﻿  'E:\Faculta\ASC\TEME\W11\asm' is not recognized as an internal or external command,
+  operable program or batch file.
+E:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppCommon.targets(128,5): error MSB3073: The command "E:\Faculta\ASC\TEME\W11\asm + C\Project1\Project1  modul.asm -f win32 -g -o modul.obj
+E:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppCommon.targets(128,5): error MSB3073: :VCEnd" exited with code 9009.

@@ -1,0 +1,89 @@
+     1                                  bits 32
+     2                                  
+     3                                  global start
+     4                                  
+     5                                  extern exit, printf, scanf, fopen, fprintf, fclose
+     6                                  
+     7                                  import exit msvcrt.dll
+     8                                  import printf msvcrt.dll
+     9                                  import scanf msvcrt.dll
+    10                                  
+    11                                  import fopen msvcrt.dll
+    12                                  import fprintf msvcrt.dll
+    13                                  import fclose msvcrt.dll
+    14                                  
+    15                                  ; An array of dwords is defined in the data segment
+    16                                  ; Display each element
+    17                                  
+    18                                  segment data use32 class=data
+    19 00000000 4E756D652066697369-         mesaj1 db "Nume fisier: ",0
+    19 00000009 65723A2000         
+    20 0000000E 546578743A2000              mesaj2 db "Text: ", 0
+    21                                      
+    22 00000015 0A00                        space db 10, 0
+    23                                  
+    24                                      len1 equ 30
+    25                                      len2 equ 120
+    26 00000017 00<rept>                    fname times len1 db 0
+    27 00000035 00<rept>                    ftext times len2 db 0
+    28 000000AD 257300                      format db "%s", 0
+    29 000000B0 257800                      format2 db "%x", 0
+    30                                      
+    31 000000B3 25732000                    writef db "%s", 32, 0
+    32                                      
+    33 000000B7 772B00                      access_mode db "w+", 0
+    34 000000BA 7200                        am2 db "r", 0
+    35 000000BC 00000000                    file_descr dd 0
+    36 000000C0 00000000                    read dd 0
+    37                                      
+    38                                  segment code use32 class=code:
+    39                                      start:
+    40                                          ; FILE NAME BEGIN
+    41 00000000 68[00000000]                    push mesaj1
+    42 00000005 68[AD000000]                    push format
+    43 0000000A FF15[00000000]                  call [printf]
+    44 00000010 83C408                          add esp, 4*2
+    45                                      
+    46 00000013 68[17000000]                    push fname
+    47 00000018 68[AD000000]                    push format
+    48 0000001D FF15[00000000]                  call [scanf]
+    49 00000023 83C40C                          add esp, 4*3
+    50                                          
+    51                                          ; FILE NAME END
+    52                                          
+    53                                          ; FILE MESSAGE BEGIN
+    54                                          
+    55 00000026 68[0E000000]                    push mesaj2
+    56 0000002B 68[AD000000]                    push format
+    57 00000030 FF15[00000000]                  call [printf]
+    58 00000036 83C408                          add esp, 4*2
+    59                                  
+    60 00000039 68[35000000]                    push ftext
+    61 0000003E 68[AD000000]                    push format
+    62 00000043 FF15[00000000]                  call [scanf]
+    63 00000049 83C40C                          add esp, 4*3
+    64                                          
+    65                                          ; FILE MESSAGE END
+    66                                          
+    67                                          ; FILE HANDLING BEGIN
+    68                                          ; We open the file
+    69 0000004C 68[B7000000]                    push access_mode
+    70 00000051 68[17000000]                    push fname
+    71 00000056 FF15[00000000]                  call [fopen]
+    72                                          
+    73 0000005C 83C408                          add esp, 4*2
+    74                                          
+    75 0000005F A3[BC000000]                    mov [file_descr], eax
+    76                                          
+    77 00000064 68[35000000]                    push dword ftext
+    78 00000069 68[B3000000]                    push dword writef
+    79 0000006E FF35[BC000000]                  push dword [file_descr]
+    80 00000074 FF15[00000000]                  call [fprintf]
+    81 0000007A 83C40C                          add esp, 4*3
+    82                                          
+    83 0000007D FF35[BC000000]                  push dword [file_descr]
+    84 00000083 FF15[00000000]                  call [fclose]
+    85 00000089 83C404                          add esp, 4
+    86                                          
+    87 0000008C 6A00                        push dword 0
+    88 0000008E FF15[00000000]              call [exit]

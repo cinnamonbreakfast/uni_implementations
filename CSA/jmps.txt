@@ -1,0 +1,75 @@
+JMP <label>
+
+		instr1
+		instr2
+		JMP et1      -------- sare la et1
+		instr3
+		et1:
+			instr4
+
+		LOOP:
+
+		instr1
+		et1:
+			< < < L O O P > > > 
+
+			JMP et1
+
+
+CMP <op1>, <op2>       --- IF
+TEST <op1>, <op2>      --- AND
+
+CONDITIONAL JUMPS /!\ !important stuff
+
+above, below = unsigned
+
+greater, less = signed
+
+
+do...while
+
+
+	MOV EAX, 0
+
+	bucla:
+		INC eax
+		CMP eax, 100
+		JB bucla
+
+
+for
+
+	MOV EAX, 0
+
+	bucla:
+		CMP EAX, 100
+		JE afara
+
+		...stuff
+
+		INC EAX
+		JMP BUCLA
+
+	afara:
+
+
+
+
+char a[10];
+for (i = 1; i < 10; i++)
+	a[i] = i
+
+
+	a db 0x1, 0x2, 0x3, 0x4
+	LEN EQU ($-a)     - - - $ current shit, a pos => a bytes
+
+	MOV AL, [a]
+	MOV AL, LEN
+
+	
+
+
+
+	
+
+
