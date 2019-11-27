@@ -20,4 +20,4 @@
 
 <p>For Cascade Undo/Redo check <i><a href="https://github.com/cinnamonbreakfast/uni_implementations/tree/master/FP/W7/Project/History"><u>History</u></a></i> package.</p>
 
-<p>Trusty or not? Got a 10 :)</p>
+<p>Trusty or not? Got a 10 for all my FP assignments :)</p>
