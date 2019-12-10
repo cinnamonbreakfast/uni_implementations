@@ -1,4 +1,4 @@
-# Toy Language Interpreter 🪀
+# 🪀 Toy Language Interpreter
 
 * About
 * How does it work
