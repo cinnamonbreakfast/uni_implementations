@@ -1,6 +1,7 @@
 package Model.Statements;
 
-import Model.Containers.IDictionary;
+import Model.Containers.MyDictionary;
+import Model.Containers.MyHeap;
 import Model.Exceptions.MyException;
 import Model.Expressions.Expression;
 import Model.ProgramState;
@@ -30,16 +31,17 @@ public class ReadFileStatement implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
-        IDictionary<String, Value> table = state.getSymTable();
-        IDictionary<StringValue, BufferedReader> filetable = state.getFileTable();
+        MyDictionary<String, Value> table = (MyDictionary<String, Value>) state.getSymTable();
+        MyDictionary<StringValue, BufferedReader> filetable = (MyDictionary<StringValue, BufferedReader>) state.getFileTable();
+        MyHeap<Value> heap = (MyHeap<Value>) state.getHeap();
 
-        Value fname = exp.evaluate(table);
+        Value fname = exp.evaluate(table, heap);
 
         if(table.contains(varName))
         {
             if(table.get(varName).getType().equals(new IntType()))
             {
-                Value val = exp.evaluate(table);
+                Value val = exp.evaluate(table, heap);
 
                 if(val.getType().equals(new StringType()))
                 {
@@ -77,7 +79,7 @@ public class ReadFileStatement implements IStatement {
             throw new MyException("Cannot find any variable for given symbol '"+varName+"'. Missing its declaration?");
         }
 
-        return state;
+        return null;
     }
 
     public IStatement deepcopy()

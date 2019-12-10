@@ -24,4 +24,9 @@ public class StringValue implements Value{
     public Type getType() {
         return new StringType();
     }
+
+    public Value deepCopy()
+    {
+        return new StringValue(val);
+    }
 }

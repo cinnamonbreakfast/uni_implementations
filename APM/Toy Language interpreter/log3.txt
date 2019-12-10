@@ -1,0 +1,319 @@
+[
+ExeStack:
+	boolean a;  
+	int v;  
+	a = false; 
+	if(a) then {v = 2;} 
+		else { v = 3; }; 
+	print("v"); 
+	
+SymTable:
+
+Out:
+]
+
+[
+ExeStack:
+	int v;  
+	a = false; 
+	if(a) then {v = 2;} 
+		else { v = 3; }; 
+	print("v"); 
+	boolean a; 
+	
+SymTable:
+
+Out:
+]
+
+[
+ExeStack:
+	int v;  
+	a = false; 
+	if(a) then {v = 2;} 
+		else { v = 3; }; 
+	print("v"); 
+	
+SymTable:
+	a -> false
+
+Out:
+]
+
+[
+ExeStack:
+	a = false; 
+	if(a) then {v = 2;} 
+		else { v = 3; }; 
+	print("v"); 
+	int v; 
+	
+SymTable:
+	a -> false
+
+Out:
+]
+
+[
+ExeStack:
+	a = false; 
+	if(a) then {v = 2;} 
+		else { v = 3; }; 
+	print("v"); 
+	
+SymTable:
+	a -> false
+	v -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	if(a) then {v = 2;} 
+		else { v = 3; }; 
+	print("v"); 
+	a = false;
+	
+SymTable:
+	a -> false
+	v -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	if(a) then {v = 2;} 
+		else { v = 3; }; 
+	print("v"); 
+	
+SymTable:
+	a -> false
+	v -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	print("v"); 
+	if(a) then {v = 2;} 
+		else { v = 3; };
+	
+SymTable:
+	a -> false
+	v -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	print("v"); 
+	v = 3;
+	
+SymTable:
+	a -> false
+	v -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	print("v"); 
+	
+SymTable:
+	a -> false
+	v -> 3
+
+Out:
+]
+
+[
+ExeStack:
+	
+SymTable:
+	a -> false
+	v -> 3
+
+Out:3 
+]
+
+[
+ExeStack:
+	boolean a;  
+	int v;  
+	a = false; 
+	if(a) then {v = 2;} 
+		else { v = 3; }; 
+	print("v"); 
+	
+SymTable:
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	int v;  
+	a = false; 
+	if(a) then {v = 2;} 
+		else { v = 3; }; 
+	print("v"); 
+	boolean a; 
+	
+SymTable:
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	int v;  
+	a = false; 
+	if(a) then {v = 2;} 
+		else { v = 3; }; 
+	print("v"); 
+	
+SymTable:
+	a -> false
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	a = false; 
+	if(a) then {v = 2;} 
+		else { v = 3; }; 
+	print("v"); 
+	int v; 
+	
+SymTable:
+	a -> false
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	a = false; 
+	if(a) then {v = 2;} 
+		else { v = 3; }; 
+	print("v"); 
+	
+SymTable:
+	a -> false
+	v -> 0
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	if(a) then {v = 2;} 
+		else { v = 3; }; 
+	print("v"); 
+	a = false;
+	
+SymTable:
+	a -> false
+	v -> 0
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	if(a) then {v = 2;} 
+		else { v = 3; }; 
+	print("v"); 
+	
+SymTable:
+	a -> false
+	v -> 0
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	if(a) then {v = 2;} 
+		else { v = 3; };
+	
+SymTable:
+	a -> false
+	v -> 0
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	v = 3;
+	
+SymTable:
+	a -> false
+	v -> 0
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	
+SymTable:
+	a -> false
+	v -> 3
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	
+SymTable:
+	a -> false
+	v -> 3
+
+Out:3 
+
+FileTable:
+Heap:Heap:
+]
+

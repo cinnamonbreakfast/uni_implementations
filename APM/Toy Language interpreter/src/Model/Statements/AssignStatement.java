@@ -1,6 +1,7 @@
 package Model.Statements;
 
-import Model.Containers.IDictionary;
+import Model.Containers.MyDictionary;
+import Model.Containers.MyHeap;
 import Model.Exceptions.MyException;
 import Model.Expressions.Expression;
 import Model.ProgramState;
@@ -18,8 +19,9 @@ public class AssignStatement implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
-        IDictionary<String, Value> table = state.getSymTable();
-        Value val = expression.evaluate(table);
+        MyDictionary<String, Value> table = (MyDictionary<String, Value>) state.getSymTable();
+        MyHeap<Value> heap = (MyHeap<Value>) state.getHeap();
+        Value val = expression.evaluate(table, heap);
 
         if(table.contains(id))
         {
@@ -34,7 +36,7 @@ public class AssignStatement implements IStatement {
         } else {
             throw new MyException("Usage of undeclared variable name " + id + ".");
         }
-        return state;
+        return null;
     }
 
     @Override

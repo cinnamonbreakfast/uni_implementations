@@ -1,0 +1,357 @@
+[
+ExeStack:
+	int v;  
+	v = 4; 
+	Model.Statements.WhileStatement@759ebb3d 
+	print("v"); 
+	
+SymTable:
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	v = 4; 
+	Model.Statements.WhileStatement@759ebb3d 
+	print("v"); 
+	int v; 
+	
+SymTable:
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	v = 4; 
+	Model.Statements.WhileStatement@759ebb3d 
+	print("v"); 
+	
+SymTable:
+	v -> 0
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	Model.Statements.WhileStatement@759ebb3d 
+	print("v"); 
+	v = 4;
+	
+SymTable:
+	v -> 0
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	Model.Statements.WhileStatement@759ebb3d 
+	print("v"); 
+	
+SymTable:
+	v -> 4
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@759ebb3d
+	
+SymTable:
+	v -> 4
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@3abfe836
+	print("v");  
+	v = v - 1;
+	
+SymTable:
+	v -> 4
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@3abfe836
+	v = v - 1;
+	print("v"); 
+	
+SymTable:
+	v -> 4
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@3abfe836
+	v = v - 1;
+	
+SymTable:
+	v -> 4
+
+Out:4 
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@3abfe836
+	
+SymTable:
+	v -> 3
+
+Out:4 
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@2ff5659e
+	print("v");  
+	v = v - 1;
+	
+SymTable:
+	v -> 3
+
+Out:4 
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@2ff5659e
+	v = v - 1;
+	print("v"); 
+	
+SymTable:
+	v -> 3
+
+Out:4 
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@2ff5659e
+	v = v - 1;
+	
+SymTable:
+	v -> 3
+
+Out:4 3 
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@2ff5659e
+	
+SymTable:
+	v -> 2
+
+Out:4 3 
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@77afea7d
+	print("v");  
+	v = v - 1;
+	
+SymTable:
+	v -> 2
+
+Out:4 3 
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@77afea7d
+	v = v - 1;
+	print("v"); 
+	
+SymTable:
+	v -> 2
+
+Out:4 3 
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@77afea7d
+	v = v - 1;
+	
+SymTable:
+	v -> 2
+
+Out:4 3 2 
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@77afea7d
+	
+SymTable:
+	v -> 1
+
+Out:4 3 2 
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@161cd475
+	print("v");  
+	v = v - 1;
+	
+SymTable:
+	v -> 1
+
+Out:4 3 2 
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@161cd475
+	v = v - 1;
+	print("v"); 
+	
+SymTable:
+	v -> 1
+
+Out:4 3 2 
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@161cd475
+	v = v - 1;
+	
+SymTable:
+	v -> 1
+
+Out:4 3 2 1 
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	Model.Statements.WhileStatement@161cd475
+	
+SymTable:
+	v -> 0
+
+Out:4 3 2 1 
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("v"); 
+	
+SymTable:
+	v -> 0
+
+Out:4 3 2 1 
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	
+SymTable:
+	v -> 0
+
+Out:4 3 2 1 0 
+
+FileTable:
+Heap:Heap:
+]
+

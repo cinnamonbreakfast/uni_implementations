@@ -1,12 +1,12 @@
 package Model.Statements;
 
-import Model.Containers.IStack;
+import Model.Containers.MyStack;
 import Model.Exceptions.MyException;
 import Model.ProgramState;
 
 public class CompStatement implements IStatement {
-    IStatement first;
-    IStatement second;
+    private IStatement first;
+    private IStatement second;
 
     public CompStatement(IStatement first, IStatement second) {
         this.first = first;
@@ -15,10 +15,10 @@ public class CompStatement implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
-        IStack<IStatement> stack = state.getExeStack();
+        MyStack<IStatement> stack = (MyStack<IStatement>) state.getExeStack();
         stack.push(second);
         stack.push(first);
-        return state;
+        return null;
     }
 
     @Override

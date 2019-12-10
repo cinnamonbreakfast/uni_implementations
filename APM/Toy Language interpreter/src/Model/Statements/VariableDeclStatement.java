@@ -24,7 +24,7 @@ public class VariableDeclStatement implements IStatement {
             Value defValue = this.type.getDefaultValue();
             table.put(name, defValue);
 
-            return state;
+            return null;
         } else
             throw new MyException("Variable name already in use.");
     }

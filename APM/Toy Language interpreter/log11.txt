@@ -1,0 +1,942 @@
+[
+0 ExeStack:
+	int v;  
+	*int a;  
+	v = 20; 
+	a -> 20 
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	
+0 SymTable:
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+]
+
+[
+0 ExeStack:
+	*int a;  
+	v = 20; 
+	a -> 20 
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	int v; 
+	
+0 SymTable:
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+]
+
+[
+0 ExeStack:
+	*int a;  
+	v = 20; 
+	a -> 20 
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	int v; 
+	
+0 SymTable:
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+]
+
+[
+0 ExeStack:
+	*int a;  
+	v = 20; 
+	a -> 20 
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	
+0 SymTable:
+	v -> 0
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+]
+
+[
+0 ExeStack:
+	*int a;  
+	v = 20; 
+	a -> 20 
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	
+0 SymTable:
+	v -> 0
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+]
+
+[
+0 ExeStack:
+	v = 20; 
+	a -> 20 
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	*int a; 
+	
+0 SymTable:
+	v -> 0
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+]
+
+[
+0 ExeStack:
+	v = 20; 
+	a -> 20 
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	*int a; 
+	
+0 SymTable:
+	v -> 0
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+]
+
+[
+0 ExeStack:
+	v = 20; 
+	a -> 20 
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	
+0 SymTable:
+	a -> 0@int
+	v -> 0
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+]
+
+[
+0 ExeStack:
+	v = 20; 
+	a -> 20 
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	
+0 SymTable:
+	a -> 0@int
+	v -> 0
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+]
+
+[
+0 ExeStack:
+	a -> 20 
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	v = 20;
+	
+0 SymTable:
+	a -> 0@int
+	v -> 0
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+]
+
+[
+0 ExeStack:
+	a -> 20 
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	v = 20;
+	
+0 SymTable:
+	a -> 0@int
+	v -> 0
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+]
+
+[
+0 ExeStack:
+	a -> 20 
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	
+0 SymTable:
+	a -> 0@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+]
+
+[
+0 ExeStack:
+	a -> 20 
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	
+0 SymTable:
+	a -> 0@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+]
+
+[
+0 ExeStack:
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	a -> 20
+	
+0 SymTable:
+	a -> 0@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+]
+
+[
+0 ExeStack:
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	a -> 20
+	
+0 SymTable:
+	a -> 0@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+]
+
+[
+0 ExeStack:
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); ) 
+	print("v");  
+	print("*a"); 
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	print("v");  
+	print("*a"); 
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); )
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	print("v");  
+	print("*a"); 
+	fork(Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); )
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	print("v");  
+	print("*a"); 
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	print("v");  
+	print("*a"); 
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	print("v");  
+	print("*a"); 
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+, 
+1 ExeStack:
+	Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); 
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	print("v");  
+	print("*a"); 
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+, 
+1 ExeStack:
+	Model.Statements.WHeapStatement@47c62251 
+	v = 20; 
+	print("v");  
+	print("*a"); 
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	print("*a"); 
+	print("v"); 
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+, 
+1 ExeStack:
+	v = 20; 
+	print("v");  
+	print("*a"); 
+	Model.Statements.WHeapStatement@47c62251
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	print("*a"); 
+	print("v"); 
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+, 
+1 ExeStack:
+	v = 20; 
+	print("v");  
+	print("*a"); 
+	Model.Statements.WHeapStatement@47c62251
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	print("*a"); 
+	print("v"); 
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+, 
+1 ExeStack:
+	v = 20; 
+	print("v");  
+	print("*a"); 
+	Model.Statements.WHeapStatement@47c62251
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	print("*a"); 
+	print("v"); 
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+, 
+1 ExeStack:
+	v = 20; 
+	print("v");  
+	print("*a"); 
+	Model.Statements.WHeapStatement@47c62251
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	print("*a"); 
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:20 
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+, 
+1 ExeStack:
+	v = 20; 
+	print("v");  
+	print("*a"); 
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:20 
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	print("*a"); 
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:20 
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+, 
+1 ExeStack:
+	v = 20; 
+	print("v");  
+	print("*a"); 
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:20 
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	print("*a"); 
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:20 
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+, 
+1 ExeStack:
+	v = 20; 
+	print("v");  
+	print("*a"); 
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:20 
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	print("*a"); 
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:20 
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+, 
+1 ExeStack:
+	v = 20; 
+	print("v");  
+	print("*a"); 
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:20 
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:20 20 
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+, 
+1 ExeStack:
+	print("v");  
+	print("*a"); 
+	v = 20;
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:20 20 
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:20 20 
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+, 
+1 ExeStack:
+	print("v");  
+	print("*a"); 
+	v = 20;
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:20 20 
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:20 20 
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+, 
+1 ExeStack:
+	print("v");  
+	print("*a"); 
+	v = 20;
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:20 20 
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+0 ExeStack:
+	
+0 SymTable:
+	a -> 1@int
+	v -> 20
+
+0 Out:20 20 
+
+0 FileTable:
+0 Heap:Heap:
+1 -> 20
+, 
+1 ExeStack:
+	print("v");  
+	print("*a"); 
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:20 20 
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+1 ExeStack:
+	print("v");  
+	print("*a"); 
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:20 20 
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+1 ExeStack:
+	print("*a"); 
+	print("v"); 
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:20 20 
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+1 ExeStack:
+	print("*a"); 
+	print("v"); 
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:20 20 
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+1 ExeStack:
+	print("*a"); 
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:20 20 20 
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+1 ExeStack:
+	print("*a"); 
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:20 20 20 
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+
+[
+1 ExeStack:
+	
+1 SymTable:
+	a -> 1@int
+	v -> 20
+
+1 Out:20 20 20 20 
+
+1 FileTable:
+1 Heap:Heap:
+1 -> 20
+]
+

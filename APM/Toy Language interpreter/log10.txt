@@ -1,0 +1,337 @@
+[
+ExeStack:
+	ref v;  
+	v -> 20 
+	ref a;  
+	a -> *v 
+	print("*v");  
+	print("**a"); 
+	
+SymTable:
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	v -> 20 
+	ref a;  
+	a -> *v 
+	print("*v");  
+	print("**a"); 
+	ref v; 
+	
+SymTable:
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	v -> 20 
+	ref a;  
+	a -> *v 
+	print("*v");  
+	print("**a"); 
+	
+SymTable:
+	v -> 0@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	ref a;  
+	a -> *v 
+	print("*v");  
+	print("**a"); 
+	v -> 20
+	
+SymTable:
+	v -> 0@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	ref a;  
+	a -> *v 
+	print("*v");  
+	print("**a"); 
+	
+SymTable:
+	v -> 1@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+1 -> 20
+]
+
+[
+ExeStack:
+	a -> *v 
+	print("*v");  
+	print("**a"); 
+	ref a; 
+	
+SymTable:
+	v -> 1@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+1 -> 20
+]
+
+[
+ExeStack:
+	a -> *v 
+	print("*v");  
+	print("**a"); 
+	
+SymTable:
+	a -> 0@ref
+	v -> 1@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+1 -> 20
+]
+
+[
+ExeStack:
+	print("*v");  
+	print("**a"); 
+	a -> *v
+	
+SymTable:
+	a -> 0@ref
+	v -> 1@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+1 -> 20
+]
+
+[
+ExeStack:
+	*int v;  
+	v -> 20 
+	**int a;  
+	a -> v 
+	print("*v");  
+	print("**a"); 
+	
+SymTable:
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	v -> 20 
+	**int a;  
+	a -> v 
+	print("*v");  
+	print("**a"); 
+	*int v; 
+	
+SymTable:
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	v -> 20 
+	**int a;  
+	a -> v 
+	print("*v");  
+	print("**a"); 
+	
+SymTable:
+	v -> 0@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	**int a;  
+	a -> v 
+	print("*v");  
+	print("**a"); 
+	v -> 20
+	
+SymTable:
+	v -> 0@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	**int a;  
+	a -> v 
+	print("*v");  
+	print("**a"); 
+	
+SymTable:
+	v -> 1@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+1 -> 20
+]
+
+[
+ExeStack:
+	a -> v 
+	print("*v");  
+	print("**a"); 
+	**int a; 
+	
+SymTable:
+	v -> 1@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+1 -> 20
+]
+
+[
+ExeStack:
+	a -> v 
+	print("*v");  
+	print("**a"); 
+	
+SymTable:
+	a -> 0@*int
+	v -> 1@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+1 -> 20
+]
+
+[
+ExeStack:
+	print("*v");  
+	print("**a"); 
+	a -> v
+	
+SymTable:
+	a -> 0@*int
+	v -> 1@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+1 -> 20
+]
+
+[
+ExeStack:
+	print("*v");  
+	print("**a"); 
+	
+SymTable:
+	a -> 2@*int
+	v -> 1@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+1 -> 20
+2 -> 1@int
+]
+
+[
+ExeStack:
+	print("**a"); 
+	print("*v"); 
+	
+SymTable:
+	a -> 2@*int
+	v -> 1@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+1 -> 20
+2 -> 1@int
+]
+
+[
+ExeStack:
+	print("**a"); 
+	
+SymTable:
+	a -> 2@*int
+	v -> 1@int
+
+Out:20 
+
+FileTable:
+Heap:Heap:
+1 -> 20
+2 -> 1@int
+]
+
+[
+ExeStack:
+	
+SymTable:
+	a -> 2@*int
+	v -> 1@int
+
+Out:20 20 
+
+FileTable:
+Heap:Heap:
+1 -> 20
+2 -> 1@int
+]
+

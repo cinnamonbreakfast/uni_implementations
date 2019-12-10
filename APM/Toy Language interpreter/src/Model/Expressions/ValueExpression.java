@@ -1,6 +1,7 @@
 package Model.Expressions;
 
-import Model.Containers.IDictionary;
+import Model.Containers.MyDictionary;
+import Model.Containers.MyHeap;
 import Model.Exceptions.MyException;
 import Model.Values.Value;
 
@@ -11,7 +12,7 @@ public class ValueExpression implements Expression {
         this.value = value;
     }
 
-    public Value evaluate(IDictionary<String, Value> table) throws MyException
+    public Value evaluate(MyDictionary<String, Value> table, MyHeap<Value> heap) throws MyException
     {
         return value;
     }

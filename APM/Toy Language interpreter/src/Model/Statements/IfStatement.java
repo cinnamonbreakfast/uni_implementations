@@ -1,7 +1,6 @@
 package Model.Statements;
 
-import Model.Containers.IDictionary;
-import Model.Containers.IStack;
+import Model.Containers.*;
 import Model.Exceptions.MyException;
 import Model.Expressions.Expression;
 import Model.ProgramState;
@@ -22,10 +21,11 @@ public class IfStatement implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
-        IStack<IStatement> stack = state.getExeStack();
-        IDictionary<String, Value> table = state.getSymTable();
+        MyStack<IStatement> stack = (MyStack<IStatement>) state.getExeStack();
+        MyDictionary<String, Value> table = (MyDictionary<String, Value>) state.getSymTable();
+        MyHeap<Value> heap = (MyHeap<Value>) state.getHeap();
 
-        Value condition = this.exp.evaluate(table);
+        Value condition = this.exp.evaluate(table, heap);
 
         if(condition.getType().equals(new BoolType()))
         {
@@ -39,7 +39,7 @@ public class IfStatement implements IStatement {
             throw new MyException("Cannot treat statement as a boolean, invalid condition.");
         }
 
-        return state;
+        return null;
     }
 
     @Override

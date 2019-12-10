@@ -1,6 +1,6 @@
 package Model.Statements;
 
-import Model.Containers.IList;
+import Model.Containers.*;
 import Model.Exceptions.MyException;
 import Model.Expressions.Expression;
 import Model.ProgramState;
@@ -20,10 +20,13 @@ public class PrintStatement implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
-        IList<Value> out = state.getOut();
-        out.add(expression.evaluate(state.getSymTable()));
+        MyDictionary<String, Value> table = (MyDictionary<String, Value>) state.getSymTable();
+        MyList<Value> out = (MyList<Value>) state.getOut();
+        MyHeap<Value> heap = (MyHeap<Value>) state.getHeap();
 
-        return state;
+        out.add(expression.evaluate(table, heap));
+
+        return null;
     }
 
     public PrintStatement deepCopy()

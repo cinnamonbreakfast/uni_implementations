@@ -17,9 +17,9 @@ public class RunExample extends Command {
         {
             ctrl.allStep();
         }
-        catch (MyException e)
+        catch (MyException | InterruptedException e)
         {
-            System.out.println("Exec" +  e.getMessage());
+            System.out.println("\n\n\nExec " +  e.getMessage()+"\n\n\n");
         }
     }
 }

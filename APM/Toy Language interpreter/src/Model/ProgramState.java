@@ -1,6 +1,7 @@
 package Model;
 
 import Model.Containers.*;
+import Model.Exceptions.MyException;
 import Model.Statements.IStatement;
 import Model.Values.StringValue;
 import Model.Values.Value;
@@ -12,16 +13,47 @@ public class ProgramState {
     private IDictionary<String, Value> symTable;
     private IList<Value> out;
     private IDictionary<StringValue, BufferedReader> fileTable;
+    private IHeap<Value> heap;
 
     private IStatement originalProgram;
 
-    public ProgramState(IStack<IStatement> exeStack, IDictionary<String, Value> symTable, IDictionary<StringValue, BufferedReader> fileTable, IList<Value> out, IStatement originalProgram) {
+    private static int lastID = 0;
+    private int ID;
+
+    public ProgramState(
+            IStack<IStatement> exeStack,
+            IHeap<Value> heap,
+            IDictionary<String, Value> symTable,
+            IDictionary<StringValue, BufferedReader> fileTable,
+            IList<Value> out,
+            IStatement originalProgram) {
         this.exeStack = exeStack;
+        this.heap = heap;
         this.symTable = symTable;
         this.fileTable = fileTable;
         this.out = out;
         this.originalProgram = originalProgram;
-//        exeStack.push(originalProgram);
+        exeStack.push(originalProgram);
+    }
+
+    public ProgramState oneStep() throws MyException
+    {
+        if(exeStack.isEmpty())
+            throw new MyException("ProgramState stack is empty.");
+
+        IStatement currentStatement = exeStack.pop();
+        return currentStatement.execute(this);
+    }
+
+    public synchronized void setNewID()
+    {
+        lastID++;
+        ID = lastID;
+    }
+
+    public boolean isNotCompleted()
+    {
+        return !this.exeStack.isEmpty();
     }
 
     public IStack<IStatement> getExeStack()
@@ -65,16 +97,26 @@ public class ProgramState {
         this.symTable = symTable;
     }
 
+    public IHeap<Value> getHeap() {
+        return heap;
+    }
+
+    public void setHeap(IHeap<Value> heap) {
+        this.heap = heap;
+    }
+
     @Override
     public String toString() {
         return
-                "\nExeStack:\n\t" + exeStack +
-                "\nSymTable:\n" + symTable +
-                "\nOut:" + out;
+                "\n" +ID+ " ExeStack:\n\t" + exeStack +
+                "\n" +ID+ " SymTable:\n" + symTable +
+                "\n" +ID+ " Out:" + out +
+                "\n" +ID+ " FileTable:"+fileTable+
+                "\n" +ID+ " Heap:"+heap;
     }
 
     public ProgramState deepCopy()
     {
-        return new ProgramState(exeStack, symTable, fileTable, out, originalProgram);
+        return new ProgramState(exeStack, heap, symTable, fileTable, out, originalProgram);
     }
 }

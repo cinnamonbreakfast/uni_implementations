@@ -1,0 +1,241 @@
+[
+ExeStack:
+	*int v;  
+	v -> 20 
+	print("*v");  
+	**int a;  
+	a -> v 
+	Model.Statements.WHeapStatement@59f99ea 
+	print("**a + 5"); 
+	
+SymTable:
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	v -> 20 
+	print("*v");  
+	**int a;  
+	a -> v 
+	Model.Statements.WHeapStatement@59f99ea 
+	print("**a + 5"); 
+	*int v; 
+	
+SymTable:
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	v -> 20 
+	print("*v");  
+	**int a;  
+	a -> v 
+	Model.Statements.WHeapStatement@59f99ea 
+	print("**a + 5"); 
+	
+SymTable:
+	v -> 0@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("*v");  
+	**int a;  
+	a -> v 
+	Model.Statements.WHeapStatement@59f99ea 
+	print("**a + 5"); 
+	v -> 20
+	
+SymTable:
+	v -> 0@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+]
+
+[
+ExeStack:
+	print("*v");  
+	**int a;  
+	a -> v 
+	Model.Statements.WHeapStatement@59f99ea 
+	print("**a + 5"); 
+	
+SymTable:
+	v -> 1@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+1 -> 20
+]
+
+[
+ExeStack:
+	**int a;  
+	a -> v 
+	Model.Statements.WHeapStatement@59f99ea 
+	print("**a + 5"); 
+	print("*v"); 
+	
+SymTable:
+	v -> 1@int
+
+Out:
+
+FileTable:
+Heap:Heap:
+1 -> 20
+]
+
+[
+ExeStack:
+	**int a;  
+	a -> v 
+	Model.Statements.WHeapStatement@59f99ea 
+	print("**a + 5"); 
+	
+SymTable:
+	v -> 1@int
+
+Out:20 
+
+FileTable:
+Heap:Heap:
+1 -> 20
+]
+
+[
+ExeStack:
+	a -> v 
+	Model.Statements.WHeapStatement@59f99ea 
+	print("**a + 5"); 
+	**int a; 
+	
+SymTable:
+	v -> 1@int
+
+Out:20 
+
+FileTable:
+Heap:Heap:
+1 -> 20
+]
+
+[
+ExeStack:
+	a -> v 
+	Model.Statements.WHeapStatement@59f99ea 
+	print("**a + 5"); 
+	
+SymTable:
+	a -> 0@*int
+	v -> 1@int
+
+Out:20 
+
+FileTable:
+Heap:Heap:
+1 -> 20
+]
+
+[
+ExeStack:
+	Model.Statements.WHeapStatement@59f99ea 
+	print("**a + 5"); 
+	a -> v
+	
+SymTable:
+	a -> 0@*int
+	v -> 1@int
+
+Out:20 
+
+FileTable:
+Heap:Heap:
+1 -> 20
+]
+
+[
+ExeStack:
+	Model.Statements.WHeapStatement@59f99ea 
+	print("**a + 5"); 
+	
+SymTable:
+	a -> 2@*int
+	v -> 1@int
+
+Out:20 
+
+FileTable:
+Heap:Heap:
+1 -> 20
+2 -> 1@int
+]
+
+[
+ExeStack:
+	print("**a + 5"); 
+	Model.Statements.WHeapStatement@59f99ea
+	
+SymTable:
+	a -> 2@*int
+	v -> 1@int
+
+Out:20 
+
+FileTable:
+Heap:Heap:
+1 -> 20
+2 -> 1@int
+]
+
+[
+ExeStack:
+	print("**a + 5"); 
+	
+SymTable:
+	a -> 2@*int
+	v -> 1@int
+
+Out:20 
+
+FileTable:
+Heap:Heap:
+1 -> 30
+2 -> 1@int
+]
+
+[
+ExeStack:
+	
+SymTable:
+	a -> 2@*int
+	v -> 1@int
+
+Out:20 35 
+
+FileTable:
+Heap:Heap:
+1 -> 30
+2 -> 1@int
+]
+

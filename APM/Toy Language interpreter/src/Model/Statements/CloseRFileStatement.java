@@ -1,13 +1,13 @@
 package Model.Statements;
 
-import Model.Containers.IDictionary;
+import Model.Containers.MyDictionary;
+import Model.Containers.MyHeap;
 import Model.Exceptions.MyException;
 import Model.Expressions.Expression;
 import Model.ProgramState;
 import Model.Types.StringType;
 import Model.Values.StringValue;
 import Model.Values.Value;
-import com.sun.jdi.InconsistentDebugInfoException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,10 +21,11 @@ public class CloseRFileStatement implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
-        IDictionary<StringValue, BufferedReader> filetable = state.getFileTable();
-        IDictionary<String, Value> table = state.getSymTable();
+        MyDictionary<StringValue, BufferedReader> filetable = (MyDictionary<StringValue, BufferedReader>) state.getFileTable();
+        MyDictionary<String, Value> table = (MyDictionary<String, Value>) state.getSymTable();
+        MyHeap<Value> heap = (MyHeap<Value>) state.getHeap();
 
-        Value val = exp.evaluate(table);
+        Value val = exp.evaluate(table, heap);
 
         if(val.getType().equals(new StringType()))
         {
@@ -52,7 +53,7 @@ public class CloseRFileStatement implements IStatement {
             throw new MyException("Expected a file name of a file descriptor. Received " + val.getType() + " instead.");
         }
 
-        return state;
+        return null;
     }
 
     @Override

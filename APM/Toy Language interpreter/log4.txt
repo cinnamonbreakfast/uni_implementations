@@ -1,0 +1,577 @@
+[
+ExeStack:
+	string varf;  
+	varf = test.in; 
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+
+Out:
+
+FileTable:
+]
+
+[
+ExeStack:
+	varf = test.in; 
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	string varf; 
+	
+SymTable:
+
+Out:
+
+FileTable:]
+
+[
+ExeStack:
+	varf = test.in; 
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> 
+
+Out:
+
+FileTable:]
+
+[
+ExeStack:
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	varf = test.in;
+	
+SymTable:
+	varf -> 
+
+Out:
+
+FileTable:]
+
+[
+ExeStack:
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+
+Out:
+
+FileTable:]
+
+[
+ExeStack:
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	openRFile
+	
+SymTable:
+	varf -> test.in
+
+Out:
+
+FileTable:]
+
+[
+ExeStack:
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+
+Out:
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	int varc; 
+	
+SymTable:
+	varf -> test.in
+
+Out:
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 0
+
+Out:
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	Reading varf - varc
+	
+SymTable:
+	varf -> test.in
+	varc -> 0
+
+Out:
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	print("varc"); 
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:15 
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	print("varc");  
+	closeRFile
+	Reading varf - varc
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:15 
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	closeRFile
+	print("varc"); 
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 50 
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 50 
+
+FileTable:]
+
+[
+ExeStack:
+	string varf;  
+	varf = test.in; 
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+
+Out:
+
+FileTable:]
+
+[
+ExeStack:
+	varf = test.in; 
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	string varf; 
+	
+SymTable:
+
+Out:
+
+FileTable:]
+
+[
+ExeStack:
+	varf = test.in; 
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> 
+
+Out:
+
+FileTable:]
+
+[
+ExeStack:
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	varf = test.in;
+	
+SymTable:
+	varf -> 
+
+Out:
+
+FileTable:]
+
+[
+ExeStack:
+	openRFile 
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+
+Out:
+
+FileTable:]
+
+[
+ExeStack:
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	openRFile
+	
+SymTable:
+	varf -> test.in
+
+Out:
+
+FileTable:]
+
+[
+ExeStack:
+	int varc;  
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+
+Out:
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	int varc; 
+	
+SymTable:
+	varf -> test.in
+
+Out:
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 0
+
+Out:
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	Reading varf - varc
+	
+SymTable:
+	varf -> test.in
+	varc -> 0
+
+Out:
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	print("varc");  
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	print("varc"); 
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	Reading varf - varc 
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:15 
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	print("varc");  
+	closeRFile
+	Reading varf - varc
+	
+SymTable:
+	varf -> test.in
+	varc -> 15
+
+Out:15 
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	print("varc");  
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	closeRFile
+	print("varc"); 
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	closeRFile
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 50 
+
+FileTable:	test.in -> java.io.BufferedReader@7382f612
+]
+
+[
+ExeStack:
+	
+SymTable:
+	varf -> test.in
+	varc -> 50
+
+Out:15 50 
+
+FileTable:]
+

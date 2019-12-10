@@ -1,15 +1,17 @@
 package Model.Statements;
 
-import Model.Containers.IDictionary;
+import Model.Containers.MyDictionary;
+import Model.Containers.MyHeap;
 import Model.Exceptions.MyException;
 import Model.Expressions.Expression;
 import Model.ProgramState;
-import Model.Statements.IStatement;
 import Model.Types.StringType;
 import Model.Values.StringValue;
 import Model.Values.Value;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class OpenRFileStatement implements IStatement {
     private Expression exp;
@@ -20,10 +22,11 @@ public class OpenRFileStatement implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
-        IDictionary<StringValue, BufferedReader> fileTable = state.getFileTable();
-        IDictionary<String, Value> table = state.getSymTable();
+        MyDictionary<StringValue, BufferedReader> fileTable = (MyDictionary<StringValue, BufferedReader>) state.getFileTable();
+        MyDictionary<String, Value> table = (MyDictionary<String, Value>) state.getSymTable();
+        MyHeap<Value> heap = (MyHeap<Value>) state.getHeap();
 
-        Value filename = this.exp.evaluate(table);
+        Value filename = this.exp.evaluate(table, heap);
 
         if(filename.getType().equals(new StringType()))
         {
@@ -48,7 +51,7 @@ public class OpenRFileStatement implements IStatement {
             throw new MyException("Expected a string for file location. Received " + filename.getType() + " instead.");
         }
 
-        return state;
+        return null;
     }
 
     @Override

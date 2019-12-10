@@ -7,9 +7,8 @@ ExeStack:
 	print("b"); 
 	
 SymTable:
-	v -> 2
 
-Out:2 
+Out:
 ]
 
 [
@@ -21,9 +20,8 @@ ExeStack:
 	int a; 
 	
 SymTable:
-	v -> 2
 
-Out:2 
+Out:
 ]
 
 [
@@ -35,9 +33,8 @@ ExeStack:
 	
 SymTable:
 	a -> 0
-	v -> 2
 
-Out:2 
+Out:
 ]
 
 [
@@ -49,9 +46,8 @@ ExeStack:
 	
 SymTable:
 	a -> 0
-	v -> 2
 
-Out:2 
+Out:
 ]
 
 [
@@ -63,9 +59,8 @@ ExeStack:
 SymTable:
 	a -> 0
 	b -> 0
-	v -> 2
 
-Out:2 
+Out:
 ]
 
 [
@@ -77,9 +72,8 @@ ExeStack:
 SymTable:
 	a -> 0
 	b -> 0
-	v -> 2
 
-Out:2 
+Out:
 ]
 
 [
@@ -90,9 +84,8 @@ ExeStack:
 SymTable:
 	a -> 17
 	b -> 0
-	v -> 2
 
-Out:2 
+Out:
 ]
 
 [
@@ -103,9 +96,8 @@ ExeStack:
 SymTable:
 	a -> 17
 	b -> 0
-	v -> 2
 
-Out:2 
+Out:
 ]
 
 [
@@ -115,9 +107,8 @@ ExeStack:
 SymTable:
 	a -> 17
 	b -> 18
-	v -> 2
 
-Out:2 
+Out:
 ]
 
 [
@@ -126,8 +117,130 @@ ExeStack:
 SymTable:
 	a -> 17
 	b -> 18
-	v -> 2
 
-Out:2 18 
+Out:18 
+]
+
+[
+ExeStack:
+	int a;  
+	int b;  
+	a = 2 + 3 * 5; 
+	b = a + 1; 
+	print("b"); 
+	
+SymTable:
+
+Out:
+]
+
+[
+ExeStack:
+	int b;  
+	a = 2 + 3 * 5; 
+	b = a + 1; 
+	print("b"); 
+	int a; 
+	
+SymTable:
+
+Out:
+]
+
+[
+ExeStack:
+	int b;  
+	a = 2 + 3 * 5; 
+	b = a + 1; 
+	print("b"); 
+	
+SymTable:
+	a -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	a = 2 + 3 * 5; 
+	b = a + 1; 
+	print("b"); 
+	int b; 
+	
+SymTable:
+	a -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	a = 2 + 3 * 5; 
+	b = a + 1; 
+	print("b"); 
+	
+SymTable:
+	a -> 0
+	b -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	b = a + 1; 
+	print("b"); 
+	a = 2 + 3 * 5;
+	
+SymTable:
+	a -> 0
+	b -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	b = a + 1; 
+	print("b"); 
+	
+SymTable:
+	a -> 17
+	b -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	print("b"); 
+	b = a + 1;
+	
+SymTable:
+	a -> 17
+	b -> 0
+
+Out:
+]
+
+[
+ExeStack:
+	print("b"); 
+	
+SymTable:
+	a -> 17
+	b -> 18
+
+Out:
+]
+
+[
+ExeStack:
+	
+SymTable:
+	a -> 17
+	b -> 18
+
+Out:18 
 ]
 

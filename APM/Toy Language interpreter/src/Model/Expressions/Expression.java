@@ -1,10 +1,11 @@
 package Model.Expressions;
 
-import Model.Containers.IDictionary;
-import Model.Values.Value;
+import Model.Containers.MyDictionary;
+import Model.Containers.MyHeap;
 import Model.Exceptions.MyException;
+import Model.Values.Value;
 
 public interface Expression {
-    Value evaluate(IDictionary<String,Value> tbl) throws MyException;
+    Value evaluate(MyDictionary<String,Value> tbl, MyHeap<Value> heap) throws MyException;
 }
 

@@ -24,12 +24,12 @@ public class Repository implements IRepository {
     }
 
     @Override
-    public ProgramState getCurrentProgram() {
-        return this.programStates.get(0);
+    public void setProgramList(List<ProgramState> states) {
+        this.programStates = states;
     }
 
     @Override
-    public void logPrgStateExec() throws MyException {
+    public void logPrgStateExec(ProgramState state) throws MyException {
         try (PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(this.logFilePath, true))))
         {
             logFile.println(this.programStates.toString() + '\n');
@@ -37,5 +37,15 @@ public class Repository implements IRepository {
         catch (IOException ioe) {
             throw new MyException(ioe.getMessage());
         }
+    }
+
+    public List<ProgramState> getProgramStates() {
+        return programStates;
+    }
+
+
+
+    public void setProgramStates(List<ProgramState> programStates) {
+        this.programStates = programStates;
     }
 }

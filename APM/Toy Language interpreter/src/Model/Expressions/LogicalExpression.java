@@ -1,6 +1,7 @@
 package Model.Expressions;
 
-import Model.Containers.IDictionary;
+import Model.Containers.MyDictionary;
+import Model.Containers.MyHeap;
 import Model.Exceptions.MyException;
 import Model.Types.BoolType;
 import Model.Values.BoolValue;
@@ -18,15 +19,15 @@ public class LogicalExpression implements Expression {
     }
 
     @Override
-    public Value evaluate(IDictionary<String, Value> table) throws MyException {
+    public Value evaluate(MyDictionary<String, Value> table, MyHeap<Value> heap) throws MyException {
         Value val1;
         Value val2;
 
-        val1 = operand1.evaluate(table);
+        val1 = operand1.evaluate(table, heap);
 
         if(val1.getType().equals(new BoolType()))
         {
-            val2 = operand2.evaluate(table);
+            val2 = operand2.evaluate(table, heap);
 
             if(val2.getType().equals(new BoolType()))
             {
@@ -49,16 +50,13 @@ public class LogicalExpression implements Expression {
                 }
             } else
                 throw new MyException("Right-hand operand is not of type boolean.");
-        } else
-            throw new MyException("Left-hand operand is not of type boolean.");
+        }
+            throw new MyException("Left-hand operand is not of type boolean nor integer.");
+
     }
 
     @Override
     public String toString() {
-        return "LogicalExpression{" +
-                "operand1=" + operand1 +
-                ", operand2=" + operand2 +
-                ", relation='" + relation + '\'' +
-                '}';
+        return operand1 + " " + relation + " " + operand2;
     }
 }

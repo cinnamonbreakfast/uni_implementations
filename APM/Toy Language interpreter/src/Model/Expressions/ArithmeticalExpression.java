@@ -1,6 +1,7 @@
 package Model.Expressions;
 
-import Model.Containers.IDictionary;
+import Model.Containers.MyDictionary;
+import Model.Containers.MyHeap;
 import Model.Exceptions.MyException;
 import Model.Types.IntType;
 import Model.Values.IntValue;
@@ -44,14 +45,14 @@ public class ArithmeticalExpression implements Expression {
         this.operation = operation;
     }
 
-    public Value evaluate(IDictionary<String, Value> tbl) throws MyException
+    public Value evaluate(MyDictionary<String, Value> tbl, MyHeap<Value> heap) throws MyException
     {
         Value value1, value2;
-        value1 = operand1.evaluate(tbl);
+        value1 = operand1.evaluate(tbl, heap);
 
         if(value1.getType().equals(new IntType()))
         {
-            value2 = operand2.evaluate(tbl);
+            value2 = operand2.evaluate(tbl, heap);
 
             if(value2.getType().equals(new IntType()))
             {
