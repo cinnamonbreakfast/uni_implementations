@@ -1,4 +1,4 @@
-# Toy Language Interpreter 🪀
+# 🪀 Toy Language Interpreter
 
 * About
 * How does it work
@@ -19,19 +19,9 @@ Trying to avoid getting deeper into technical terms and stuff, this interpreter 
 
 ## Updates
 
-### 1.0 - Beginning
-* ProgramState
-* Repository
-* ADTs
-* Types
-* Values
-* Basic statements and expressions
-
-### 1.1 - Things are getting serious
-* Added file handling
-* Added execution log to log files
-* Log on each step (debugging)
-* Logical Expressions and Boolean Type & Value
+### 1.3 - Why
+* Fork statement, multi-threading
+* New structure for Controller, ProgramState, statements
 
 ### 1.2 - What the actual f...
 * Added Ref type (pointer in Heap)
@@ -40,6 +30,20 @@ Trying to avoid getting deeper into technical terms and stuff, this interpreter 
 * Garbage collecter
 * While statement
 
-### 1.3 - Why
-* Fork statement, multi-threading
-* New structure for Controller, ProgramState, statements
+### 1.1 - Things are getting serious
+* Added file handling
+* Added execution log to log files
+* Log on each step (debugging)
+* Logical Expressions and Boolean Type & Value
+
+### 1.0 - Beginning
+* ProgramState
+* Repository
+* ADTs
+* Types
+* Values
+* Basic statements and expressions
+
+## Future updates
+
+Can't predict sh~t, GUI for sure
