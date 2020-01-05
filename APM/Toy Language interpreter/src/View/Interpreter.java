@@ -6,10 +6,7 @@ import Model.Exceptions.MyException;
 import Model.Expressions.*;
 import Model.ProgramState;
 import Model.Statements.*;
-import Model.Types.BoolType;
-import Model.Types.IntType;
-import Model.Types.RefType;
-import Model.Types.StringType;
+import Model.Types.*;
 import Model.Values.BoolValue;
 import Model.Values.IntValue;
 import Model.Values.StringValue;
@@ -32,6 +29,60 @@ public class Interpreter {
         IList<Value> out1 = new MyList<Value>();
 
         IStatement ex1 = pr1();
+        IStatement ex2 = pr2();
+        IStatement ex3 = pr3();
+        IStatement ex4 = pr4();
+        IStatement ex5 = pr5();
+        IStatement ex6 = pr6();
+        IStatement ex7 = pr7();
+        IStatement ex8 = pr8();
+        IStatement ex9 = pr9();
+        IStatement ex10 = pr10();
+        IStatement ex11 = pr11();
+
+        int crPrg = 0;
+
+        try {
+            MyDictionary<String, Type> typeEnv = new MyDictionary<>();
+
+            ex1.typeCheck(typeEnv);
+            crPrg++;
+
+            ex2.typeCheck(typeEnv);
+            crPrg++;
+
+            ex3.typeCheck(typeEnv);
+            crPrg++;
+
+            ex4.typeCheck(typeEnv);
+            crPrg++;
+
+            ex5.typeCheck(typeEnv);
+            crPrg++;
+
+            ex6.typeCheck(typeEnv);
+            crPrg++;
+
+            ex7.typeCheck(typeEnv);
+            crPrg++;
+
+            ex8.typeCheck(typeEnv);
+            crPrg++;
+
+            ex9.typeCheck(typeEnv);
+            crPrg++;
+
+            ex10.typeCheck(typeEnv);
+            crPrg++;
+
+            ex11.typeCheck(typeEnv);
+            crPrg++;
+
+            System.out.println("No problems during TypeChecking.");
+        } catch (Exception ex)
+        {
+            System.out.println("[TypeChecking] On program "+crPrg+ " / " +ex.getMessage());
+        }
 
         ProgramState prg1 = new ProgramState(stack1, heap1, symTable1, fileTable1, out1, ex1);
         IRepository repo1 = new Repository(prg1, "log1.txt");
@@ -45,8 +96,6 @@ public class Interpreter {
         IDictionary<StringValue, BufferedReader> fileTable2 = new MyDictionary<StringValue, BufferedReader>();
         IList<Value> out2 = new MyList<Value>();
 
-        IStatement ex2 = pr2();
-
         ProgramState prg2 = new ProgramState(stack2, heap2, symTable2, fileTable2, out2, ex2);
         IRepository repo2 = new Repository(prg2, "log2.txt");
         Controller ctrl2 = new Controller(repo2);
@@ -58,8 +107,6 @@ public class Interpreter {
         IDictionary<String, Value> symTable3 = new MyDictionary<String, Value>();
         IDictionary<StringValue, BufferedReader> fileTable3 = new MyDictionary<StringValue, BufferedReader>();
         IList<Value> out3 = new MyList<Value>();
-
-        IStatement ex3 = pr3();
 
         ProgramState prg3 = new ProgramState(stack3, heap3, symTable3, fileTable3, out3, ex3);
         IRepository repo3 = new Repository(prg3, "log3.txt");
@@ -73,8 +120,6 @@ public class Interpreter {
         IDictionary<StringValue, BufferedReader> fileTable4 = new MyDictionary<StringValue, BufferedReader>();
         IList<Value> out4 = new MyList<Value>();
 
-        IStatement ex4 = pr4();
-
         ProgramState prg4 = new ProgramState(stack4, heap4, symTable4, fileTable4, out4, ex4);
         IRepository repo4 = new Repository(prg4, "log4.txt");
         Controller ctrl4 = new Controller(repo4);
@@ -86,8 +131,6 @@ public class Interpreter {
         IDictionary<String, Value> symTable5 = new MyDictionary<String, Value>();
         IDictionary<StringValue, BufferedReader> fileTable5 = new MyDictionary<StringValue, BufferedReader>();
         IList<Value> out5 = new MyList<Value>();
-
-        IStatement ex5 = pr5();
 
         ProgramState prg5 = new ProgramState(stack5, heap5, symTable5, fileTable5, out5, ex5);
         IRepository repo5 = new Repository(prg5, "log5.txt");
@@ -101,8 +144,6 @@ public class Interpreter {
         IDictionary<StringValue, BufferedReader> fileTable6 = new MyDictionary<StringValue, BufferedReader>();
         IList<Value> out6 = new MyList<Value>();
 
-        IStatement ex6 = pr6();
-
         ProgramState prg6 = new ProgramState(stack6, heap6, symTable6, fileTable6, out6, ex6);
         IRepository repo6 = new Repository(prg6, "log6.txt");
         Controller ctrl6 = new Controller(repo6);
@@ -114,8 +155,6 @@ public class Interpreter {
         IDictionary<String, Value> symTable7 = new MyDictionary<String, Value>();
         IDictionary<StringValue, BufferedReader> fileTable7 = new MyDictionary<StringValue, BufferedReader>();
         IList<Value> out7 = new MyList<Value>();
-
-        IStatement ex7 = pr7();
 
         ProgramState prg7 = new ProgramState(stack7, heap7, symTable7, fileTable7, out7, ex7);
         IRepository repo7 = new Repository(prg7, "log7.txt");
@@ -129,8 +168,6 @@ public class Interpreter {
         IDictionary<StringValue, BufferedReader> fileTable8 = new MyDictionary<StringValue, BufferedReader>();
         IList<Value> out8 = new MyList<Value>();
 
-        IStatement ex8 = pr8();
-
         ProgramState prg8 = new ProgramState(stack8, heap8, symTable8, fileTable8, out8, ex8);
         IRepository repo8 = new Repository(prg8, "log8.txt");
         Controller ctrl8 = new Controller(repo8);
@@ -142,8 +179,6 @@ public class Interpreter {
         IDictionary<String, Value> symTable9 = new MyDictionary<String, Value>();
         IDictionary<StringValue, BufferedReader> fileTable9 = new MyDictionary<StringValue, BufferedReader>();
         IList<Value> out9 = new MyList<Value>();
-
-        IStatement ex9 = pr9();
 
         ProgramState prg9 = new ProgramState(stack9, heap9, symTable9, fileTable9, out9, ex9);
         IRepository repo9 = new Repository(prg9, "log9.txt");
@@ -157,8 +192,6 @@ public class Interpreter {
         IDictionary<StringValue, BufferedReader> fileTable10 = new MyDictionary<StringValue, BufferedReader>();
         IList<Value> out10 = new MyList<Value>();
 
-        IStatement ex10 = pr10();
-
         ProgramState prg10 = new ProgramState(stack10, heap10, symTable10, fileTable10, out10, ex10);
         IRepository repo10 = new Repository(prg10, "log10.txt");
         Controller ctrl10 = new Controller(repo10);
@@ -171,12 +204,12 @@ public class Interpreter {
         IDictionary<StringValue, BufferedReader> fileTable11 = new MyDictionary<StringValue, BufferedReader>();
         IList<Value> out11 = new MyList<Value>();
 
-        IStatement ex11 = pr11();
-
         ProgramState prg11 = new ProgramState(stack11, heap11, symTable11, fileTable11, out11, ex11);
         IRepository repo11 = new Repository(prg11, "log11.txt");
         Controller ctrl11 = new Controller(repo11);
 
+
+        //TODO: TYPECHECKING
         TextMenu menu = new TextMenu();
         menu.addCommand(new ExitCommand("0", "Exit"));
         menu.addCommand(new RunExample("1", ex1.toString(), ctrl1));
@@ -652,14 +685,14 @@ public class Interpreter {
                                 new AssignStatement(
                                         "v",
                                         new ValueExpression(
-                                                new IntValue(20)
+                                                new IntValue(10)
                                         )
                                 ),
                                 new CompStatement(
                                         new NewStatement(
                                                 "a",
                                                 new ValueExpression(
-                                                        new IntValue(20)
+                                                        new IntValue(22)
                                                 )
                                         ),
                                         new CompStatement(
@@ -668,14 +701,14 @@ public class Interpreter {
                                                                 new WHeapStatement(
                                                                         "a",
                                                                         new ValueExpression(
-                                                                                new IntValue(20)
+                                                                                new IntValue(30)
                                                                         )
                                                                 ),
                                                                 new CompStatement(
                                                                         new AssignStatement(
                                                                                 "v",
                                                                                 new ValueExpression(
-                                                                                        new IntValue(20)
+                                                                                        new IntValue(32)
                                                                                 )
                                                                         ),
                                                                         new CompStatement(

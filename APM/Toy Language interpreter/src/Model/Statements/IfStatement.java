@@ -5,6 +5,7 @@ import Model.Exceptions.MyException;
 import Model.Expressions.Expression;
 import Model.ProgramState;
 import Model.Types.BoolType;
+import Model.Types.Type;
 import Model.Values.BoolValue;
 import Model.Values.Value;
 
@@ -40,6 +41,19 @@ public class IfStatement implements IStatement {
         }
 
         return null;
+    }
+
+    @Override
+    public MyDictionary<String, Type> typeCheck(MyDictionary<String, Type> typeEnv) throws MyException {
+        Type typeExp = exp.typeCheck(typeEnv);
+
+        if(!(typeExp.equals(new BoolType())))
+            throw new MyException("Expression inside the condition is not boolean.");
+
+        doif.typeCheck(typeEnv);
+        doEsle.typeCheck(typeEnv);
+
+        return typeEnv;
     }
 
     @Override

@@ -6,6 +6,7 @@ import Model.Exceptions.MyException;
 import Model.Expressions.Expression;
 import Model.ProgramState;
 import Model.Types.RefType;
+import Model.Types.Type;
 import Model.Values.RefValue;
 import Model.Values.Value;
 
@@ -51,6 +52,17 @@ public class NewStatement implements IStatement {
             throw new MyException("Cannot allocate on a undeclared symbol.");
 
         return null;
+    }
+
+    @Override
+    public MyDictionary<String, Type> typeCheck(MyDictionary<String, Type> typeEnv) throws MyException {
+        Type typeVar = typeEnv.get(var_name);
+        Type typeExp = exp.typeCheck(typeEnv);
+
+        if(!(typeVar.equals(new RefType(typeExp))))
+            throw new MyException("Right and left hand side have different types [assign].");
+
+        return typeEnv;
     }
 
     @Override

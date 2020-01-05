@@ -5,6 +5,7 @@ import Model.Containers.MyDictionary;
 import Model.Containers.MyStack;
 import Model.Exceptions.MyException;
 import Model.ProgramState;
+import Model.Types.Type;
 import Model.Values.Value;
 
 import java.util.Map;
@@ -37,6 +38,13 @@ public class Fork implements IStatement {
         newPS.setNewID();
 
         return newPS;
+    }
+
+    @Override
+    public MyDictionary<String, Type> typeCheck(MyDictionary<String, Type> typeEnv) throws MyException {
+        statement.typeCheck(typeEnv);
+
+        return typeEnv;
     }
 
     @Override

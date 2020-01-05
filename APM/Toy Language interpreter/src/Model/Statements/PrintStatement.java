@@ -4,6 +4,7 @@ import Model.Containers.*;
 import Model.Exceptions.MyException;
 import Model.Expressions.Expression;
 import Model.ProgramState;
+import Model.Types.Type;
 import Model.Values.Value;
 
 public class PrintStatement implements IStatement {
@@ -27,6 +28,12 @@ public class PrintStatement implements IStatement {
         out.add(expression.evaluate(table, heap));
 
         return null;
+    }
+
+    @Override
+    public MyDictionary<String, Type> typeCheck(MyDictionary<String, Type> typeEnv) throws MyException {
+        expression.typeCheck(typeEnv);
+        return typeEnv;
     }
 
     public PrintStatement deepCopy()

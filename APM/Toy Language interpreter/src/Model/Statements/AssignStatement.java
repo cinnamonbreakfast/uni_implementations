@@ -40,6 +40,17 @@ public class AssignStatement implements IStatement {
     }
 
     @Override
+    public MyDictionary<String, Type> typeCheck(MyDictionary<String, Type> typeEnv) throws MyException {
+        Type typeVar = typeEnv.get(id);
+        Type typeExp = expression.typeCheck(typeEnv);
+
+        if(!typeVar.equals(typeExp))
+            throw new MyException("Declared type of variable " + id + " and type of expression does not match.");
+
+        return typeEnv;
+    }
+
+    @Override
     public String toString() {
         return id +
                 " = " + expression +

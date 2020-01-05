@@ -4,6 +4,7 @@ import Model.Containers.MyDictionary;
 import Model.Containers.MyHeap;
 import Model.Exceptions.MyException;
 import Model.Types.IntType;
+import Model.Types.Type;
 import Model.Values.IntValue;
 import Model.Values.Value;
 
@@ -88,6 +89,20 @@ public class ArithmeticalExpression implements Expression {
         throw new MyException("Left-hand operand is not a number.");
 
      }
+
+    @Override
+    public Type typeCheck(MyDictionary<String, Type> typeEnv) throws MyException {
+        Type type1 = operand1.typeCheck(typeEnv);
+        Type type2 = operand2.typeCheck(typeEnv);
+
+        if(!type1.equals(new IntType()))
+            throw new MyException("Left-hand operand is not a number.");
+
+        if(!type2.equals(new IntType()))
+            throw new MyException("Right-hand operand is not a number.");
+
+        return new IntType();
+    }
 
     @Override
     public String toString() {

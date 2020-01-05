@@ -2,10 +2,10 @@
 0 ExeStack:
 	int v;  
 	*int a;  
-	v = 20; 
-	a -> 20 
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	v = 10; 
+	a -> 22 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
@@ -22,10 +22,10 @@
 [
 0 ExeStack:
 	*int a;  
-	v = 20; 
-	a -> 20 
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	v = 10; 
+	a -> 22 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
@@ -43,10 +43,10 @@
 [
 0 ExeStack:
 	*int a;  
-	v = 20; 
-	a -> 20 
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	v = 10; 
+	a -> 22 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
@@ -64,10 +64,10 @@
 [
 0 ExeStack:
 	*int a;  
-	v = 20; 
-	a -> 20 
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	v = 10; 
+	a -> 22 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
@@ -85,10 +85,10 @@
 [
 0 ExeStack:
 	*int a;  
-	v = 20; 
-	a -> 20 
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	v = 10; 
+	a -> 22 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
@@ -105,10 +105,10 @@
 
 [
 0 ExeStack:
-	v = 20; 
-	a -> 20 
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	v = 10; 
+	a -> 22 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
@@ -126,10 +126,10 @@
 
 [
 0 ExeStack:
-	v = 20; 
-	a -> 20 
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	v = 10; 
+	a -> 22 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
@@ -147,10 +147,10 @@
 
 [
 0 ExeStack:
-	v = 20; 
-	a -> 20 
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	v = 10; 
+	a -> 22 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
@@ -168,10 +168,10 @@
 
 [
 0 ExeStack:
-	v = 20; 
-	a -> 20 
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	v = 10; 
+	a -> 22 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
@@ -189,14 +189,14 @@
 
 [
 0 ExeStack:
-	a -> 20 
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	a -> 22 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
 	print("*a"); 
-	v = 20;
+	v = 10;
 	
 0 SymTable:
 	a -> 0@int
@@ -210,14 +210,14 @@
 
 [
 0 ExeStack:
-	a -> 20 
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	a -> 22 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
 	print("*a"); 
-	v = 20;
+	v = 10;
 	
 0 SymTable:
 	a -> 0@int
@@ -231,9 +231,9 @@
 
 [
 0 ExeStack:
-	a -> 20 
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	a -> 22 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
@@ -241,7 +241,7 @@
 	
 0 SymTable:
 	a -> 0@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
@@ -251,9 +251,9 @@
 
 [
 0 ExeStack:
-	a -> 20 
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	a -> 22 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
@@ -261,7 +261,7 @@
 	
 0 SymTable:
 	a -> 0@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
@@ -271,17 +271,17 @@
 
 [
 0 ExeStack:
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
 	print("*a"); 
-	a -> 20
+	a -> 22
 	
 0 SymTable:
 	a -> 0@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
@@ -291,17 +291,17 @@
 
 [
 0 ExeStack:
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
 	print("*a"); 
-	a -> 20
+	a -> 22
 	
 0 SymTable:
 	a -> 0@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
@@ -311,8 +311,8 @@
 
 [
 0 ExeStack:
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
@@ -320,19 +320,19 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 22
 ]
 
 [
 0 ExeStack:
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); ) 
 	print("v");  
@@ -340,53 +340,53 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 22
 ]
 
 [
 0 ExeStack:
 	print("v");  
 	print("*a"); 
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); )
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 22
 ]
 
 [
 0 ExeStack:
 	print("v");  
 	print("*a"); 
-	fork(Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	fork(a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); )
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 22
 ]
 
 [
@@ -396,13 +396,13 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 22
 ]
 
 [
@@ -412,13 +412,13 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 22
 ]
 
 [
@@ -428,29 +428,29 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 22
 , 
 1 ExeStack:
-	Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); 
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 1 Out:
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 22
 ]
 
 [
@@ -460,29 +460,29 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 22
 , 
 1 ExeStack:
-	Model.Statements.WHeapStatement@47c62251 
-	v = 20; 
+	a->30 
+	v = 32; 
 	print("v");  
 	print("*a"); 
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 1 Out:
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 22
 ]
 
 [
@@ -492,29 +492,29 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 22
 , 
 1 ExeStack:
-	v = 20; 
+	v = 32; 
 	print("v");  
 	print("*a"); 
-	Model.Statements.WHeapStatement@47c62251
+	a->30
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 1 Out:
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 22
 ]
 
 [
@@ -524,29 +524,29 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 22
 , 
 1 ExeStack:
-	v = 20; 
+	v = 32; 
 	print("v");  
 	print("*a"); 
-	Model.Statements.WHeapStatement@47c62251
+	a->30
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 1 Out:
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 22
 ]
 
 [
@@ -556,29 +556,29 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 22
 , 
 1 ExeStack:
-	v = 20; 
+	v = 32; 
 	print("v");  
 	print("*a"); 
-	Model.Statements.WHeapStatement@47c62251
+	a->30
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 1 Out:
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 22
 ]
 
 [
@@ -588,29 +588,29 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 0 Out:
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 22
 , 
 1 ExeStack:
-	v = 20; 
+	v = 32; 
 	print("v");  
 	print("*a"); 
-	Model.Statements.WHeapStatement@47c62251
+	a->30
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
 1 Out:
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 22
 ]
 
 [
@@ -619,28 +619,28 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
-0 Out:20 
+0 Out:10 
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 30
 , 
 1 ExeStack:
-	v = 20; 
+	v = 32; 
 	print("v");  
 	print("*a"); 
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
-1 Out:20 
+1 Out:10 
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 30
 ]
 
 [
@@ -649,28 +649,28 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
-0 Out:20 
+0 Out:10 
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 30
 , 
 1 ExeStack:
-	v = 20; 
+	v = 32; 
 	print("v");  
 	print("*a"); 
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
-1 Out:20 
+1 Out:10 
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 30
 ]
 
 [
@@ -679,28 +679,28 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
-0 Out:20 
+0 Out:10 
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 30
 , 
 1 ExeStack:
-	v = 20; 
+	v = 32; 
 	print("v");  
 	print("*a"); 
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
-1 Out:20 
+1 Out:10 
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 30
 ]
 
 [
@@ -709,28 +709,28 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
-0 Out:20 
+0 Out:10 
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 30
 , 
 1 ExeStack:
-	v = 20; 
+	v = 32; 
 	print("v");  
 	print("*a"); 
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
-1 Out:20 
+1 Out:10 
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 30
 ]
 
 [
@@ -738,28 +738,28 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
-0 Out:20 20 
+0 Out:10 30 
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 30
 , 
 1 ExeStack:
 	print("v");  
 	print("*a"); 
-	v = 20;
+	v = 32;
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
-1 Out:20 20 
+1 Out:10 30 
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 30
 ]
 
 [
@@ -767,28 +767,28 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
-0 Out:20 20 
+0 Out:10 30 
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 30
 , 
 1 ExeStack:
 	print("v");  
 	print("*a"); 
-	v = 20;
+	v = 32;
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
-1 Out:20 20 
+1 Out:10 30 
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 30
 ]
 
 [
@@ -796,28 +796,28 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
-0 Out:20 20 
+0 Out:10 30 
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 30
 , 
 1 ExeStack:
 	print("v");  
 	print("*a"); 
-	v = 20;
+	v = 32;
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
-1 Out:20 20 
+1 Out:10 30 
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 30
 ]
 
 [
@@ -825,13 +825,13 @@
 	
 0 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 10
 
-0 Out:20 20 
+0 Out:10 30 
 
 0 FileTable:
 0 Heap:Heap:
-1 -> 20
+1 -> 30
 , 
 1 ExeStack:
 	print("v");  
@@ -839,13 +839,13 @@
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 32
 
-1 Out:20 20 
+1 Out:10 30 
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 30
 ]
 
 [
@@ -855,13 +855,13 @@
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 32
 
-1 Out:20 20 
+1 Out:10 30 
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 30
 ]
 
 [
@@ -871,13 +871,13 @@
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 32
 
-1 Out:20 20 
+1 Out:10 30 
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 30
 ]
 
 [
@@ -887,13 +887,13 @@
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 32
 
-1 Out:20 20 
+1 Out:10 30 
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 30
 ]
 
 [
@@ -902,13 +902,13 @@
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 32
 
-1 Out:20 20 20 
+1 Out:10 30 32 
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 30
 ]
 
 [
@@ -917,13 +917,13 @@
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 32
 
-1 Out:20 20 20 
+1 Out:10 30 32 
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 30
 ]
 
 [
@@ -931,12 +931,12 @@
 	
 1 SymTable:
 	a -> 1@int
-	v -> 20
+	v -> 32
 
-1 Out:20 20 20 20 
+1 Out:10 30 32 30 
 
 1 FileTable:
 1 Heap:Heap:
-1 -> 20
+1 -> 30
 ]
 

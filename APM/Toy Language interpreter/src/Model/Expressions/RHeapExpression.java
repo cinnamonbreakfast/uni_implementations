@@ -4,6 +4,7 @@ import Model.Containers.MyDictionary;
 import Model.Containers.MyHeap;
 import Model.Exceptions.MyException;
 import Model.Types.RefType;
+import Model.Types.Type;
 import Model.Values.RefValue;
 import Model.Values.Value;
 
@@ -32,6 +33,16 @@ public class RHeapExpression implements Expression {
                 throw new MyException("Invalid address.");
         } else
             throw new MyException("Expression does not represent a reference in heap.");
+    }
+
+    @Override
+    public Type typeCheck(MyDictionary<String, Type> typeEnv) throws MyException {
+        Type type = exp.typeCheck(typeEnv);
+
+        if(!(type instanceof RefType))
+            throw new MyException("Expression does not represent a reference in heap.");
+
+        return ((RefType) type).getInner();
     }
 
     @Override

@@ -6,6 +6,7 @@ import Model.Exceptions.MyException;
 import Model.Expressions.Expression;
 import Model.ProgramState;
 import Model.Types.StringType;
+import Model.Types.Type;
 import Model.Values.StringValue;
 import Model.Values.Value;
 
@@ -54,6 +55,16 @@ public class CloseRFileStatement implements IStatement {
         }
 
         return null;
+    }
+
+    @Override
+    public MyDictionary<String, Type> typeCheck(MyDictionary<String, Type> typeEnv) throws MyException {
+        Type type = exp.typeCheck(typeEnv);
+
+        if(!(type.equals(new StringType())))
+            throw new MyException("Name of file to close is not a string.");
+
+        return typeEnv;
     }
 
     @Override

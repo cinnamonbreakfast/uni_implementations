@@ -1,8 +1,10 @@
 package Model.Statements;
 
+import Model.Containers.MyDictionary;
 import Model.Containers.MyStack;
 import Model.Exceptions.MyException;
 import Model.ProgramState;
+import Model.Types.Type;
 
 public class CompStatement implements IStatement {
     private IStatement first;
@@ -19,6 +21,11 @@ public class CompStatement implements IStatement {
         stack.push(second);
         stack.push(first);
         return null;
+    }
+
+    @Override
+    public MyDictionary<String, Type> typeCheck(MyDictionary<String, Type> typeEnv) throws MyException {
+        return second.typeCheck(first.typeCheck(typeEnv));
     }
 
     @Override

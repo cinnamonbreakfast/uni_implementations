@@ -4,6 +4,7 @@ import Model.Containers.MyDictionary;
 import Model.Containers.MyHeap;
 import Model.Exceptions.MyException;
 import Model.Types.BoolType;
+import Model.Types.Type;
 import Model.Values.BoolValue;
 import Model.Values.Value;
 
@@ -53,6 +54,20 @@ public class LogicalExpression implements Expression {
         }
             throw new MyException("Left-hand operand is not of type boolean nor integer.");
 
+    }
+
+    @Override
+    public Type typeCheck(MyDictionary<String, Type> typeEnv) throws MyException {
+        Type type1 = operand1.typeCheck(typeEnv);
+        Type type2 = operand2.typeCheck(typeEnv);
+
+        if(!type1.equals(new BoolType()))
+            throw new MyException("Left-hand operand is not boolean.");
+
+        if(!type2.equals(new BoolType()))
+            throw new MyException("Right-hand operand is not boolean.");
+
+        return new BoolType();
     }
 
     @Override

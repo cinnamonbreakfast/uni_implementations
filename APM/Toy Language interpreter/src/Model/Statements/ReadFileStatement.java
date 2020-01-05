@@ -7,6 +7,7 @@ import Model.Expressions.Expression;
 import Model.ProgramState;
 import Model.Types.IntType;
 import Model.Types.StringType;
+import Model.Types.Type;
 import Model.Values.IntValue;
 import Model.Values.StringValue;
 import Model.Values.Value;
@@ -80,6 +81,17 @@ public class ReadFileStatement implements IStatement {
         }
 
         return null;
+    }
+
+    @Override
+    public MyDictionary<String, Type> typeCheck(MyDictionary<String, Type> typeEnv) throws MyException {
+        Type typeExp = exp.typeCheck(typeEnv);
+        Type typeVar = typeEnv.get(varName);
+
+        if(!(typeExp.equals(new StringType())))
+            throw new MyException("File name is not a string.");
+
+        return typeEnv;
     }
 
     public IStatement deepcopy()

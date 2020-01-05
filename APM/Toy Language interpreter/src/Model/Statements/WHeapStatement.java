@@ -6,6 +6,7 @@ import Model.Exceptions.MyException;
 import Model.Expressions.Expression;
 import Model.ProgramState;
 import Model.Types.RefType;
+import Model.Types.Type;
 import Model.Values.RefValue;
 import Model.Values.Value;
 
@@ -47,5 +48,21 @@ public class WHeapStatement implements IStatement {
                 throw new MyException("Variable type must be reference.");
         } else
             throw new MyException("Symbol name does not exist in table. Missing its declaration.");
+    }
+
+    @Override
+    public MyDictionary<String, Type> typeCheck(MyDictionary<String, Type> typeEnv) throws MyException {
+        Type typeVar = typeEnv.get(var);
+        Type typeExp = exp.typeCheck(typeEnv);
+
+        if(!(typeVar.equals(new RefType(typeExp))))
+            throw new MyException("Right and left hand side have different types [assign].");
+
+        return typeEnv;
+    }
+
+    @Override
+    public String toString() {
+        return var + "->" + exp;
     }
 }
