@@ -45,6 +45,8 @@ public class ProgramState {
         return currentStatement.execute(this);
     }
 
+    public boolean noSteps() { return exeStack.isEmpty(); };
+
     public synchronized void setNewID()
     {
         lastID++;
