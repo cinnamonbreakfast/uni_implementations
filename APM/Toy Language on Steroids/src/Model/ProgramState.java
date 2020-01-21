@@ -7,6 +7,7 @@ import Model.Values.StringValue;
 import Model.Values.Value;
 
 import java.io.BufferedReader;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ProgramState {
     private IStack<IStatement> exeStack;
@@ -15,10 +16,11 @@ public class ProgramState {
     private IDictionary<StringValue, BufferedReader> fileTable;
     private IHeap<Value> heap;
     private ISemaphore semaphoreTable;
+    private IBarrier barrierTable;
 
     private IStatement originalProgram;
 
-    private static int lastID = 0;
+    private static AtomicInteger lastID = new AtomicInteger(0);
     private int ID;
 
     public ProgramState(
@@ -28,13 +30,14 @@ public class ProgramState {
             IDictionary<StringValue, BufferedReader> fileTable,
             IList<Value> out,
             ISemaphore semaphoreTable,
-            IStatement originalProgram) {
+            IBarrier barrierTable, IStatement originalProgram) {
         this.exeStack = exeStack;
         this.heap = heap;
         this.symTable = symTable;
         this.fileTable = fileTable;
         this.out = out;
         this.semaphoreTable = semaphoreTable;
+        this.barrierTable = barrierTable;
         this.originalProgram = originalProgram;
         exeStack.push(originalProgram);
     }
@@ -48,12 +51,19 @@ public class ProgramState {
         return currentStatement.execute(this);
     }
 
+    public IBarrier getBarrierTable() {
+        return barrierTable;
+    }
+
+    public void setBarrierTable(IBarrier barrierTable) {
+        this.barrierTable = barrierTable;
+    }
+
     public boolean noSteps() { return exeStack.isEmpty(); };
 
     public synchronized void setNewID()
     {
-        lastID++;
-        ID = lastID;
+        ID = lastID.getAndIncrement();
     }
 
     public int getID() {
@@ -134,6 +144,6 @@ public class ProgramState {
 
     public ProgramState deepCopy()
     {
-        return new ProgramState(exeStack, heap, symTable, fileTable, out, semaphoreTable, originalProgram);
+        return new ProgramState(exeStack, heap, symTable, fileTable, out, semaphoreTable, barrierTable, originalProgram);
     }
 }

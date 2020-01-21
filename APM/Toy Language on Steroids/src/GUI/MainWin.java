@@ -39,7 +39,25 @@ public class MainWin {
     public void initialize() {
         List<String> ex = Arrays.asList("Prog1", "Prog2", "Prog3", "Prog4", "Prog5", "Prog6", "Prog7", "Prog8", "Prog9", "Prog10", "Prog11");
         ObservableList<String> programs = FXCollections.observableArrayList(
-                "Prog1", "Prog2", "Prog3", "Prog4", "Prog5", "Prog6", "Prog7", "Prog8", "Prog9", "Prog10", "Prog11", "Prog12", "Prog13");
+                "Prog1",
+                "Prog2",
+                "Prog3",
+                "Prog4",
+                "Prog5",
+                "Prog6",
+                "Prog7",
+                "Prog8",
+                "Prog9",
+                "Prog10",
+                "Prog11",
+                "Prog12",
+                "Prog13",
+                "Prog14",
+                "Prog15",
+                "Prog16",
+                "Prog17",
+                "Prog18",
+                "Prog19");
         lv.setItems(programs);
         lv.setOnMouseClicked(e -> selectedItem());
 

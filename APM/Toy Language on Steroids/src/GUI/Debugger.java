@@ -13,6 +13,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.util.Pair;
 
 import java.io.BufferedReader;
 import java.util.*;
@@ -33,6 +34,7 @@ public class Debugger {
     IDictionary<StringValue, BufferedReader> fileTable;
     IList<Value> out;
     MySemaphore semaphoreTable;
+    MyBarrier barrierTable;
 
     @FXML
     ListView<String> codeView;
@@ -58,6 +60,13 @@ public class Debugger {
     @FXML TableColumn<Triplet<Integer, List<Integer>, Integer>, List<Integer>> SphList;
     // Semaohore END
 
+    // Barrier
+    @FXML TableView<Map.Entry<Integer, Pair<Integer, List<Integer>>>> BarrierT;
+    @FXML TableColumn<Map.Entry<Integer, Pair<Integer, List<Integer>>>, Integer> BarIndex;
+    @FXML TableColumn<Map.Entry<Integer, Pair<Integer, List<Integer>>>, Integer> BarValue;
+    @FXML TableColumn<Map.Entry<Integer, Pair<Integer, List<Integer>>>, List<Integer>> BarList;
+    // Barrier END
+
 
     @FXML ListView<Integer> PrgIdent;
 
@@ -77,6 +86,12 @@ public class Debugger {
         SphList.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getSecond()));
         // Semaphore END
 
+        // Barrier
+        BarIndex.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getKey()));
+        BarValue.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue().getKey()));
+        BarList.setCellValueFactory(p -> new SimpleObjectProperty<>(p.getValue().getValue().getValue()));
+        // Barrier END
+
 
         // Setting up program execution
 
@@ -86,6 +101,7 @@ public class Debugger {
         fileTable = new MyDictionary<StringValue, BufferedReader>();
         out = new MyList<Value>();
         semaphoreTable = new MySemaphore();
+        barrierTable = new MyBarrier();
 
         // END
 
@@ -112,25 +128,43 @@ public class Debugger {
 
     public void oneStep()
     {
+
+
         ctrl.executeOneStep();
 
-        if(ctrl.getRepo().getProgramStates().size() == 0)
+        if(((Repository)ctrl.getRepo()).stillExec())
         {
+            populatePrgs();
+            populateOut();
+            populateSymbol();
+            populateHeap();
+            populateExe();
+            populateSemaphore();
+            populateBarrier();
+
+        } else {
+            populateOut();
+            populateSymbol();
+            populateHeap();
+            populateExe();
             step.setDisable(true);
-            return;
+//            return;
         }
 
-        populatePrgs();
-        populateOut();
-        populateSymbol();
-        populateHeap();
-        populateExe();
-        populateSemaphore();
+    }
+
+    private void populateBarrier()
+    {
+        List<Map.Entry<Integer, Pair<Integer, List<Integer>>>> barrierListed =
+                new ArrayList<>(ctrl.getRepo().getProgramStates().get(curPrg).getBarrierTable().getBarriers().getMap().entrySet());
+        BarrierT.setItems(FXCollections.observableList(barrierListed));
+        BarrierT.refresh();
     }
 
     private void populateSemaphore()
     {
-        List<Triplet<Integer, List<Integer>, Integer>> symbolTableListed = new ArrayList<>(ctrl.getRepo().getProgramStates().get(curPrg).getSemaphoreTable().getSemaphore().getMap().values());
+        List<Triplet<Integer, List<Integer>, Integer>> symbolTableListed =
+                new ArrayList<>(ctrl.getRepo().getProgramStates().get(curPrg).getSemaphoreTable().getSemaphore().getMap().values());
         semaphoreT.setItems(FXCollections.observableList(symbolTableListed));
         semaphoreT.refresh();
     }
@@ -207,7 +241,7 @@ public class Debugger {
 
     public void loadProgram()
     {
-        prg = new ProgramState(stack, heap, symTable, fileTable, out, semaphoreTable, prog);
+        prg = new ProgramState(stack, heap, symTable, fileTable, out, semaphoreTable, barrierTable, prog);
         IRepository repo = new Repository(prg, "log1.txt");
         ctrl = new Controller(repo);
 

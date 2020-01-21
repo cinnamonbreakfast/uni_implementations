@@ -1,7 +1,5 @@
 package Model.Containers;
 
-import javafx.util.Pair;
-
 import java.util.List;
 
 public interface ISemaphore {
@@ -9,9 +7,9 @@ public interface ISemaphore {
             IDictionary<Integer, Triplet<Integer, List<Integer>, Integer>> semaphores
     );
 
-    public IDictionary<Integer, Triplet<Integer, List<Integer>, Integer>> getSemaphore();
+    IDictionary<Integer, Triplet<Integer, List<Integer>, Integer>> getSemaphore();
 
-    public Integer getSemaphoreAddress();
+    Integer getSemaphoreAddress();
 
     void put(Integer foundIndex, Triplet<Integer, List<Integer>, Integer> integerListPair);
 }

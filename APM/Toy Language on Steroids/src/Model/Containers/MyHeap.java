@@ -2,14 +2,15 @@ package Model.Containers;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class MyHeap<T> implements IHeap<T> {
-    private HashMap<Integer, T> map;
+    private Map<Integer, T> map;
     private int memloc;
 
     public MyHeap()
     {
-        this.map = new HashMap<Integer, T>();
+        this.map = new ConcurrentHashMap<Integer, T>();
         this.memloc = 0;
     }
 

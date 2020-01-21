@@ -23,6 +23,17 @@ public class Repository implements IRepository {
         this.programStates.add(currentProgramState);
     }
 
+    public boolean stillExec()
+    {
+        boolean has = false;
+        for(ProgramState pgs : programStates)
+        {
+            //System.out.println(pgs.getExeStack().isEmpty());
+            has = !(pgs.getExeStack().isEmpty());
+        }
+        return has;
+    }
+
     @Override
     public void setProgramList(List<ProgramState> states) {
         this.programStates = states;

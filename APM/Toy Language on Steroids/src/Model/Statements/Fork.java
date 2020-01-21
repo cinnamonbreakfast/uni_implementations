@@ -32,7 +32,7 @@ public class Fork implements IStatement {
                 newSymTable,
                 state.getFileTable(),
                 state.getOut(),
-                state.getSemaphoreTable(), this.statement
+                state.getSemaphoreTable(), state.getBarrierTable(), this.statement
         );
 
         newPS.setNewID();

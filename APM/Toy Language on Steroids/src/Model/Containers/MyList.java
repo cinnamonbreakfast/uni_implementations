@@ -1,14 +1,16 @@
 package Model.Containers;
 
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class MyList<T> implements IList<T> {
-    private ArrayList<T> list;
+    private Deque<T> list;
 
     public MyList()
     {
-        list = new ArrayList<T>();
+        list = new ConcurrentLinkedDeque<>();
     }
 
     @Override
@@ -29,12 +31,6 @@ public class MyList<T> implements IList<T> {
         return list.remove(elem);
     }
 
-    @Override
-    public T get(int index)
-    {
-        return list.get(index);
-    }
-
     public String toString()
     {
         StringBuilder res = new StringBuilder();
@@ -45,7 +41,7 @@ public class MyList<T> implements IList<T> {
         return res.toString();
     }
 
-    public List<T> getList()
+    public Deque<T> getList()
     {
         return this.list;
     }

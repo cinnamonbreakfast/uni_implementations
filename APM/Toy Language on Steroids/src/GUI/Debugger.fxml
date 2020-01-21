@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="499.0" prefWidth="688.0" style="-fx-background-color: #333333;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="GUI.Debugger">
+<AnchorPane prefHeight="499.0" prefWidth="966.0" style="-fx-background-color: #333333;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="GUI.Debugger">
   <children>
     <HBox layoutX="14.0" layoutY="15.0" prefHeight="471.0" prefWidth="660.0">
       <children>
@@ -74,5 +74,17 @@
         </VBox>
       </children>
     </HBox>
+    <VBox layoutX="674.0" layoutY="20.0" prefHeight="465.0" prefWidth="280.0">
+      <children>
+        <Label text="Cyclic barriers" textFill="WHITE" />
+        <TableView fx:id="BarrierT" prefHeight="200.0" prefWidth="200.0">
+          <columns>
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="49.0" text="Index" fx:id="BarIndex" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="179.0" text="List" fx:id="BarList" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="51.0" text="Value" fx:id="BarValue" />
+          </columns>
+        </TableView>
+      </children>
+    </VBox>
   </children>
 </AnchorPane>

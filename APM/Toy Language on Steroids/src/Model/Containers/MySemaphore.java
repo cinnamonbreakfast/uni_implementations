@@ -3,7 +3,7 @@ package Model.Containers;
 import java.util.List;
 
 public class MySemaphore implements ISemaphore {
-    IDictionary<Integer, Triplet<Integer, List<Integer>, Integer>> semaphore;
+    private IDictionary<Integer, Triplet<Integer, List<Integer>, Integer>> semaphore;
     private int IDs;
 
     public MySemaphore() {
