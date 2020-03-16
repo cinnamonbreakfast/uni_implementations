@@ -30,6 +30,13 @@ bool SortedSet::add(TComp e) {
 	int j = 0;
 
 	TComp x;
+	
+	// DUMB THING BEGINS
+
+	// THIS. IS. THE DUMBEST. THING. EVER
+	// Just iterate till relation evaluates
+	// as FALSE. That means you found the
+	// pos to insert node.
 
 	for (i = 0; i < this->asize - 1; i++) {
 		for (j = i; j < this->asize; j++)
@@ -39,6 +46,8 @@ bool SortedSet::add(TComp e) {
 				this->elems[j] = x;
 			}
 	}
+
+	// DUMB THING END
 
 	return true;
 }
