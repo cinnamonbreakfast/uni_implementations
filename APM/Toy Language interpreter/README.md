@@ -5,6 +5,28 @@
 * Updates
 * Future updates
 
+## Unmerged updates
+
+There is a separate directory on this project where numerous statements and expressions have been added, but being on testing phase, the project was not merged with this one. Source can be easily found [HERE](https://github.com/cinnamonbreakfast/uni_implementations/tree/master/APM/Toy%20Language%20on%20Steroids/src). The unmerged projects contains the following updates/improvements:
+* Console
+* Wait statement
+* Switch statement
+* Repeat until statement
+* For
+* Acquire/Release statement (for multi-threading and syncing)
+* Semaphore
+* Barrier
+* Fork
+* Conditional assignment statement
+* Await statement
+* Logical Expression
+* NOT expression
+* Relational expression
+* CountDown Latch
+* Cyclic barrier
+
+A certain syntax and editor has not been developed yet, nor an interpretor available for terminal.
+
 ## About
 
 This is an assignment for Advanced Programming methods where we mostly write projects in Java (but C# and Scala as well). This project, as the title says, is a Toy Language interpreter, based only on Java, starting with basic statements and types up until multithreading and heap. Beside basic implementations from my UNI assignments, I am planning to lead this project to a certain point where everybody can compile code in terminal using any IDE. The assignments are based on hard-coded examples and not using any kind of file handling & compiling.
