@@ -1,0 +1,6 @@
+rootProject.name = 'lab_spring'
+
+include 'common'
+include 'server'
+include 'client'
+
