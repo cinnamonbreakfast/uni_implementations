@@ -1,0 +1,42 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0px;
+    margin: 0px;
+    background-color: #333333;
+}
+
+#board { 
+    background-color: #FFFFFF;
+    width: 400px;
+    height: 404px;
+    position: absolute;
+    top: calc(50vh - 200px);
+    left: calc(50vw - 200px);
+}
+
+#board table {
+    margin: 0px;
+    padding: 0px;
+    color: #333;
+    font-size: 100px;
+    font-family: 'Maven Pro';
+    font-weight: 700;
+}
+#board table td {
+    width: 130px;
+    height: 130px;
+    background-color: #eee;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+#board table td:hover {
+    opacity: .5;
+}
+#board table td.tic {
+    background-color: #FF6961;
+}
+#board table td.tac {
+    background-color: #FFE55C;
+}
