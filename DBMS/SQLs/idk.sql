@@ -1,0 +1,8 @@
+--DELETE FROM Views
+SELECT * FROM TestTables
+SELECT * FROM Views
+SELECT * FROM Tables
+SELECT * FROM Tests
+
+--DBCC CHECKIDENT ('Views', RESEED, 0)
+--GO
