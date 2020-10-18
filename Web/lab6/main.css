@@ -1,0 +1,79 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0px;
+    margin: 0px;
+    background-color: #333333;
+    font-family: 'Maven Pro';
+}
+
+#board { 
+    background-color: #FFFFFF;
+    width: 400px;
+    position: absolute;
+    top: calc(50vh - 200px);
+    left: calc(50vw - 200px);
+    border-radius: 6px;
+    box-shadow: 0px 5px 10px 3px rgba(0,0,0,.1);
+    cursor: grab;
+}
+#board:active {
+    cursor: grabbing
+}
+#board .title {
+    padding: 10px 15px;
+}
+#board .title h5 {
+    margin: 0px;
+    font-size: 20px;
+}
+#board .title .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background-color: rgba(0,0,0,.1);
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+    padding: 0px;
+}
+#board .title .close:hover {
+    background-color: rgba(0,0,0,.2);
+    cursor: pointer;
+}
+
+#board .body {
+    padding: 15px 15px;
+}
+#board .body p {
+    margin: 0px;
+    line-height: 25px;
+}
+
+#board .action {
+    display: flex;
+    align-items: right;
+    justify-content: flex-end;
+    padding: 15px;
+}
+#board .action button {
+    background-color: #9fa8eb;
+    outline: none;
+    border: 0px none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: #333;
+    /* float: right; */
+    display: inline-flex;
+    transition: 0.3s ease-in-out;
+}
+#board .action button.transparent {
+    background-color: transparent;
+}
+#board .action button:hover {
+    opacity: .8;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
