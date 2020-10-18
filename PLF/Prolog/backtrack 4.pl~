@@ -1,0 +1,18 @@
+gensub([],[]).
+gensub([H|T], [H|Rt]):-
+  gensub(T, Rt).
+gensub([_|T], Rt):-
+  gensub(T, Rt).
+
+abs(N, R):-N>=0, R is N.
+abs(N, R):-R is (0-N).
+
+check([_]).
+check([H1,H2|T]):-P is abs(H2-H1),
+  P <= 3,
+  check([H2|T]).
+
+onesol(L, R1):-
+  gensub(L, R1), check(R1).
+
+allsol(L, R):-findall(RT, onesol(L, RT), R).

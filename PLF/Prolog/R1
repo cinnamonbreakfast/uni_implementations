@@ -1,0 +1,2 @@
+len([],R):-R is 0.
+len([H|T], R):-len(T, R1), R1 is R + 1.

@@ -1,0 +1,34 @@
+add([], _, _, []).
+add([H|T], E, P, [E, H|R]):-P mod 3 =:= 0,
+    P1 is P + 1,
+    add(T, E, P1, R), !.
+add([H|T], E, P, [H|R]):-P1 is P+1, add(T, E, P1, R).
+
+f([], 0).
+f([H|T], S):-f(T, S1),
+			S1 >= 2, !,
+			S=S1+H.
+f([_|T], S):-f(T, S1), S=S1+1.
+
+divisible(X,Y) :- 0 is X mod Y, !.
+
+divisible(X,Y) :- X > Y+1, divisible(X, Y+1).
+
+isPrime(2) :- true,!.
+isPrime(X) :- X < 2,!,false.
+isPrime(X) :- not(divisible(X, 2)).
+
+del([], _, []).
+del(R, 0, R).
+del([H|T], P, R):-isPrime(H),
+    P1 is P - 1,
+    del(T, P1, R).
+del([H|T], P, [H|R]):-del(T, P, R).
+
+exists([], _):-false.
+exists([H|_], E):-H=:=E, !.
+exists([_|T], E):-exists(T, E).
+
+mks([], []).
+mks([H|T], R):-exists(T, H), mks(T, R).
+mks([H|T], [H|R]):-mks(T, R).
