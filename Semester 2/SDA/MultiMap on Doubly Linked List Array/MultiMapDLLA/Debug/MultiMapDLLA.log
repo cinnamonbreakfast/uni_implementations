@@ -1,8 +1,0 @@
-﻿  ExtendedTest.cpp
-c:\users\zetsu\source\repos\multimapdlla\multimapdlla\extendedtest.cpp(289): warning C4018: '<': signed/unsigned mismatch
-  MultiMap.cpp
-  MultiMapIterator.cpp
-  ShortTest.cpp
-  main.cpp
-  Generating Code...
-  MultiMapDLLA.vcxproj -> C:\Users\zetsu\source\repos\MultiMapDLLA\Debug\MultiMapDLLA.exe
